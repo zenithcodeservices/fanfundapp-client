@@ -2,7 +2,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 const Layout = ({ children }) => (
-    <div className="overflow-x-hidden min-h-screen flex flex-col justify-between">
+    <div style={{backgroundColor: "#1a1a1a"}} className="overflow-x-hidden min-h-screen flex flex-col justify-between">
 
       <div>
         <Nav />

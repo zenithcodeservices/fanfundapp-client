@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 const navigation = [
   {
     title: "Dashboard",
-    href: "/",
+    href: "/dashboard",
     icon: "bi bi-speedometer2",
   },
   {
@@ -51,7 +51,7 @@ const navigation = [
   },
   {
     title: "About",
-    href: "/about",
+    href: "/about-dashboard",
     icon: "bi bi-people",
   },
 ];

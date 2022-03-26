@@ -2,47 +2,35 @@ import Benefit from '../components/Benefit'
 
 const DATA = [
   {
-    header: 'Benefit #1',
-    description: `Ipsum qui exercitation excepteur qui sint consectetur officia quis ex. 
-    Amet adipisicing do aute ad tempor ut sit occaecat deserunt esse velit enim anim id. 
-    Aliquip cillum eiulgod irure cillum est sunt laboris tempor consequat elit ullamco. 
-    Ipsum dolor culpa dolor ea.`,
-    image: 'images/benefit-1.jpeg',
+    header: 'Invest in Funding Rounds',
+    description: "Invest in artists that you believe will grow. Funding rounds are created by the platform’s talented artists to raise capital and share ownership with fans.",
+    image: 'images/benefits-vector-set-invest.png',
     imageAltTag: 'benefit-1',
     bullets: [
-      'Cupidatat quis voluptate consequat velit ipsum occaecat.',
-      'Cupidatat quis voluptate consequat velit ipsum occaecat.',
-      'Cupidatat quis voluptate consequat velit ipsum occaecat.'
+      'Artists receive funding.',
+      'Fans receive equity in the artists future streaming revenue.',
+      'Fans receive additional perks.'
     ],
     reversed: false
   },
   {
-    header: 'Benefit #2',
-    description: `Ipsum qui exercitation excepteur qui sint consectetur officia quis ex. 
-    Amet adipisicing do aute ad tempor ut sit occaecat deserunt esse velit enim anim id. 
-    Aliquip cillum eiulgod irure cillum est sunt laboris tempor consequat elit ullamco. 
-    Ipsum dolor culpa dolor ea.`,
-    image: 'images/benefit-2.jpeg',
+    header: 'Monitor your Portfolio',
+    description: `You can invest in multiple artists and monitor your portfolio of investments in one place.    `,
+    image: 'images/benefits-vector-set-growth.png',
     imageAltTag: 'benefit-2',
     bullets: [
-      'Cupidatat quis voluptate consequat velit ipsum occaecat.',
-      'Cupidatat quis voluptate consequat velit ipsum occaecat.',
-      'Cupidatat quis voluptate consequat velit ipsum occaecat.'
+      'Artists can grow or decrease in value over the allotted time frame.',
+      "Fans can monitor the artists success using the platofrm's FFXP metric."
     ],
     reversed: true
   },
   {
-    header: 'Benefit #3',
-    description: `Ipsum qui exercitation excepteur qui sint consectetur officia quis ex. 
-    Amet adipisicing do aute ad tempor ut sit occaecat deserunt esse velit enim anim id. 
-    Aliquip cillum eiulgod irure cillum est sunt laboris tempor consequat elit ullamco. 
-    Ipsum dolor culpa dolor ea.`,
-    image: 'images/benefit-3.jpeg',
+    header: 'Claim your Rewards',
+    description: `If the artist grows during the allotted time period, you will share their success and receive a portion of their streaming royalties, as well as other rewards.`,
+    image: 'images/benefits-vector-set-reward.png',
     imageAltTag: 'benefit-3',
     bullets: [
-      'Cupidatat quis voluptate consequat velit ipsum occaecat.',
-      'Cupidatat quis voluptate consequat velit ipsum occaecat.',
-      'Cupidatat quis voluptate consequat velit ipsum occaecat.'
+      'If the artist grows during the funding round, the fan receives a proportional reward.'
     ],
     reversed: false
   }

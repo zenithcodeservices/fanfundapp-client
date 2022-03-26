@@ -17,7 +17,7 @@ function Hero() {
           <div className="flex space-x-4">
             <PrimaryButton
               text="Get Started"
-              link="/"
+              link="/login?signup=1"
             />
             <SecondaryButton
               text="Contact us"
@@ -34,7 +34,7 @@ function Hero() {
       >
         <img
           alt="hero-img"
-          src="/images/akaimpkmini.jpg"
+          src="/images/homepage-graphic.png"
           className="mx-auto object-cover shadow  rounded-bl-extraLarge w-full h-96 sm:h-112 md:h-120"
         />
       </motion.div>

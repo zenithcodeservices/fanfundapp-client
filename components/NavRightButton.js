@@ -3,9 +3,7 @@ import{ classNames } from '../utils/helpers'
 function NavRightButton({ text, layout }) {
   return (
     <a
-      href="https://gum.co/DsAsk"
-      target="_blank"
-      rel="noopener noreferrer"
+      href="/login?signup=1 "
       style={{ textDecoration: 'none' }}
       className={classNames(
         layout === 'desktop' ? 'px-4 py-2' : 'px-6 py-3',

@@ -14,7 +14,7 @@ import {
   Dropdown,
   Button,
 } from "reactstrap";
-import LogoWhite from "../../assets/images/logos/amplelogowhite.svg";
+import LogoWhite from "../../assets/images/logos/icon.svg";
 import user1 from "../../assets/images/users/user1.jpg";
 
 const Header = ({ showMobmenu }) => {
@@ -29,12 +29,21 @@ const Header = ({ showMobmenu }) => {
   return (
     <Navbar color="secondary" dark expand="md">
       <div className="d-flex align-items-center">
-        <NavbarBrand href="/" className="d-lg-none">
-          <Image src={LogoWhite} alt="logo" />
-        </NavbarBrand>
         <Button color="secondary" className="d-lg-none" onClick={showMobmenu}>
           <i className="bi bi-list"></i>
         </Button>
+
+        <NavbarBrand href="/" className="d-lg-none">
+        <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+        >
+          <Image width={40} height={40} src={LogoWhite} alt="logo" />
+        </div>
+        </NavbarBrand>
+        
       </div>
       <div className="hstack gap-2">
         <Button
@@ -53,7 +62,7 @@ const Header = ({ showMobmenu }) => {
 
       <Collapse navbar isOpen={isOpen}>
         <Nav className="me-auto" navbar>
-          <NavItem>
+{/*           <NavItem>
             <Link href="/">
               <a className="nav-link">Starter</a>
             </Link>
@@ -73,7 +82,7 @@ const Header = ({ showMobmenu }) => {
               <DropdownItem divider />
               <DropdownItem>Reset</DropdownItem>
             </DropdownMenu>
-          </UncontrolledDropdown>
+          </UncontrolledDropdown> */}
         </Nav>
         <Dropdown isOpen={dropdownOpen} toggle={toggle}>
           <DropdownToggle color="secondary">
