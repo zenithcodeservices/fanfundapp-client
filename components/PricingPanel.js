@@ -11,7 +11,7 @@ function PricingPanel({ plan, price, description, features, cta }) {
         <p className="mt-4  text-white">{description}</p>
       </div>
       <div className="w-full border border-gray-100"></div>
-      <h2 className="px-6 py-4 text-lg font-medium  text-white">What's included?</h2>
+      <h2 className="px-6 py-4 text-lg font-medium  text-white">What&apos;s included?</h2>
       <div className="px-6 h-56">
         {features.map((feature, index) =>
           <div key={index} className="py-1">

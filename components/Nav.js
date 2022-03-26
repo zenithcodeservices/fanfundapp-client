@@ -20,7 +20,7 @@ function Nav() {
           <div className="max-w-6xl mx-auto px-2 sm:px-6 lg:px-8 font-primary">
             <div className="relative flex items-center justify-between h-16 sm:h-20">
               <Link passHref href='/'>
-                <a className="flex items-center" style={{ textDecoration: 'none' }} href="/">
+                <p className="flex items-center" style={{ textDecoration: 'none', cursor: 'pointer' }} href="/">
                   <img
                     className="h-14 w-auto"
                     src="/icon.svg"
@@ -31,7 +31,7 @@ function Nav() {
                     <span>Fanfund</span>
                   </span>
 
-                </a>
+                </p>
               </Link>
               <div>
                 <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
@@ -54,12 +54,12 @@ function Nav() {
                           key={item.name}
                           href={item.href}
                         >
-                          <a
-                            style={{ textDecoration: 'none' }}
+                          <p
+                            style={{ textDecoration: 'none', cursor: 'pointer' }}
                             className='text-white hover:text-palette-dark px-3 py-2 rounded-md font-medium'
                           >
                             {item.name}
-                          </a>
+                          </p>
                         </Link>
                       ))}
                       <NavRightButton
@@ -91,12 +91,12 @@ function Nav() {
                       href={item.href}
                       passHref
                     >
-                      <a
-                        style={{ textDecoration: 'none' }}
+                      <p
+                        style={{ textDecoration: 'none', cursor: 'pointer' }}
                         className='text-white hover:text-palette-dark'
                       >
                         {item.name}
-                      </a>
+                      </p>
                     </Link>
                   </Disclosure.Button>
                 ))}

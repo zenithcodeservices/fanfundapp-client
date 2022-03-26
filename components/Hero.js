@@ -12,7 +12,7 @@ function Hero() {
           <span className="text-white">Invest in Music Artists. <span className="text-palette-primary">Earn early adopter rewards.</span></span>
           </h1>
           <p className="font-secondary text-white text-base md:text-lg lg:text-xl">
-            Fanfund is an online platform that allows early adopter fans to invest in growing music artists - providing funding for musicians while simultaneously rewarding their fans' astute judgment.
+            Fanfund is an online platform that allows early adopter fans to invest in growing music artists - providing funding for musicians while simultaneously rewarding their fans&apos; astute judgment.
           </p>
           <div className="flex space-x-4">
             <PrimaryButton
