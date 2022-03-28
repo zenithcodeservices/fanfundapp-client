@@ -3,6 +3,11 @@ import Head from "next/head";
 import "../styles/style.scss";
 import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css';
+import Amplify, { Auth } from 'aws-amplify';
+import awsconfig from '../src/aws-exports';
+Amplify.configure(awsconfig);
+
+
 
 
 function MyApp({ Component, pageProps }) {
@@ -19,10 +24,10 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+  
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
     </>
   );
 }

@@ -18,10 +18,11 @@ function LoginPage() {
 
   useEffect(() => {
     if(!router.isReady) return;
+    setIsSigningIn(true)
     console.log(router.query.signup)
       if(router.query.signup) {
         if(router.query.signup.toString() === "1") {
-          toggleIsSigningIn()
+          setIsSigningIn(false)
         }
       }
 

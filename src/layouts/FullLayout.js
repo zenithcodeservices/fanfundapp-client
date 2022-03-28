@@ -2,6 +2,8 @@ import React from "react";
 import { Container } from "reactstrap";
 import Header from "./header/Header";
 import Sidebar from "./sidebars/vertical/Sidebar";
+import { AmplifyAuthenticator } from "@aws-amplify/ui-react";
+
 
 const FullLayout = ({ children }) => {
   const [open, setOpen] = React.useState(false);

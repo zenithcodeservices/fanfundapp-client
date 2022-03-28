@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-fanfundappnextjs-dev-01535-authRole",
+      "UnauthRoleArn": "arn:aws:iam::559545256661:role/amplify-fanfundappnextjs-dev-01535-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::559545256661:role/amplify-fanfundappnextjs-dev-01535-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-fanfundappnextjs-dev-01535-deployment",
+      "UnauthRoleName": "amplify-fanfundappnextjs-dev-01535-unauthRole",
+      "StackName": "amplify-fanfundappnextjs-dev-01535",
+      "StackId": "arn:aws:cloudformation:us-east-1:559545256661:stack/amplify-fanfundappnextjs-dev-01535/08537ee0-ad63-11ec-a285-1210d882a277",
+      "AmplifyAppId": "dja0lrc51u0jb"
+    },
+    "categories": {
+      "auth": {
+        "fanfundappnextjsb0dfb4d5": {}
+      }
+    }
+  }
+}

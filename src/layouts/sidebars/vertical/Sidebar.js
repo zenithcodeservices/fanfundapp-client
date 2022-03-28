@@ -10,6 +10,11 @@ const navigation = [
     icon: "bi bi-speedometer2",
   },
   {
+    title: "Artists",
+    href: "/artists",
+    icon: "bi bi-bell",
+  },
+  {
     title: "Alert",
     href: "/ui/alerts",
     icon: "bi bi-bell",
@@ -73,6 +78,7 @@ const Sidebar = ({ showMobilemenu }) => {
       </div>
       <div className="pt-4 mt-2">
         <Nav vertical className="sidebarNav">
+          <p className="text-muted" tag="h6">Funding Rounds</p>
           {navigation.map((navi, index) => (
             <NavItem key={index} className="sidenav-bg">
               <Link href={navi.href}>

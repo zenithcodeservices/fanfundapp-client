@@ -4,6 +4,10 @@ import Benefits from '../components/Benefits'
 import FinalCTA from '../components/FinalCTA'
 import Layout from '../components/Layout'
 
+
+HomePage.Layout = Layout
+
+
 function HomePage() {
 
   return (
@@ -15,7 +19,7 @@ function HomePage() {
           <div className="w-4/5 h-full mx-auto rounded-full bg-gray-50 transform scale-x-150"></div>
         </div>
         {/* core services */}
-        <Services />
+        {/* <Services /> */}
         {/* benefits */}
         <Benefits />
       </div>
@@ -29,6 +33,5 @@ function HomePage() {
   )
 }
 
-HomePage.Layout = Layout
 
 export default HomePage
