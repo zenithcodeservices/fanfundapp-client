@@ -165,11 +165,65 @@ function Nav(user) {
                       </Link>
                     </Disclosure.Button>
                   ))}
-                  <div className="pt-6">
-                    <NavRightButton
-                      text='Sign Up'
-                      layout="mobile" />
-                  </div>
+
+{UserContext.username === null ? (
+                          <>
+                          <Disclosure.Button
+                          key="Login"
+                          className='w-full block px-3 py-4 font-medium border-b border-gray-300'
+                        ><Link
+                            passHref
+                            key="Login"
+                            href="/login"
+                          >
+                            <p
+                              style={{ textDecoration: 'none', cursor: 'pointer' }}
+                              className='text-white hover:text-palette-dark px-3 py-2 rounded-md font-medium'
+                            >
+                              Login
+                            </p>
+                          </Link></Disclosure.Button>
+                          <Disclosure.Button
+                          key="Sign Up"
+                          className='w-full block px-3 py-4 font-medium border-b border-gray-300'
+                          >
+                          <NavRightButton
+                              text='Sign Up'
+                              layout="mobile" /></Disclosure.Button></>
+                        ) : (
+                          <><Disclosure.Button
+                          key="Logout"
+                          className='w-full block px-3 py-4 font-medium border-b border-gray-300'
+                          >
+                            <Link
+                              key="Logout"
+                              href="/"
+                            >
+                              <p
+                                style={{ textDecoration: 'none', cursor: 'pointer' }}
+                                onClick={() => signOut()}
+                                className='text-white hover:text-palette-dark px-3 py-2 rounded-md font-medium'
+                              >
+                                Logout
+                              </p>
+                            </Link>
+                            </Disclosure.Button>
+                            <Disclosure.Button
+                            key="Dashboard"
+                            className='w-full block px-3 py-4 font-medium border-b border-gray-300'
+                            >
+                            <Link href="/dashboard">
+                                <p
+                                  style={{ textDecoration: 'none', cursor: 'pointer' }}
+                                  className={classNames(
+                                    'px-4 py-2',
+                                    'bg-palette-primary rounded-md text-black font-medium hover:bg-palette-dark'
+                                  )}
+                                >Dashboard</p>
+                              </Link></Disclosure.Button></>
+                        )}
+
+
                 </div>
               </Disclosure.Panel>
             </Transition>

@@ -13,11 +13,13 @@ $success: #0bb7af;
 $warning: #ee9d01;
 $dark: #343a40;
 $light: #eaf2fb;
-$secondary: #35363b;
+$secondary: #1A1A1A;
+$customcolor: #1A1A1A;
 
 $theme-colors: (
   "primary": $primary,
   "secondary": $secondary,
+  "customcolor": $customcolor,
   "success": $success,
   "info": $info,
   "warning": $warning,

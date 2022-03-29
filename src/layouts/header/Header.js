@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+
+
 import {
   Navbar,
   Collapse,
@@ -27,7 +29,7 @@ const Header = ({ showMobmenu }) => {
   };
 
   return (
-    <Navbar color="secondary" dark expand="md">
+    <Navbar color="palette-gray" dark expand="md">
       <div className="d-flex align-items-center">
         <Button color="secondary" className="d-lg-none" onClick={showMobmenu}>
           <i className="bi bi-list"></i>
@@ -84,8 +86,9 @@ const Header = ({ showMobmenu }) => {
             </DropdownMenu>
           </UncontrolledDropdown> */}
         </Nav>
+        
         <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-          <DropdownToggle color="secondary">
+          <DropdownToggle color="customcolor">
             <div style={{ lineHeight: "0px" }}>
               <Image
                 src={user1}

@@ -14,11 +14,13 @@ $warning: #ee9d01;
 $dark: #343a40;
 $light: #eaf2fb;
 $secondary: #35363b;
+$customcolor: #1A1A1A;
 
 
 
 $theme-colors: (
   "primary": $primary,
+  "customcolor": $customcolor,
   "secondary": $secondary,
   "success": $success,
   "info": $info,

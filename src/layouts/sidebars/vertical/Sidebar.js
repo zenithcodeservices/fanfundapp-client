@@ -61,6 +61,35 @@ const navigation = [
   },
 ];
 
+
+const navigation2 = [
+  {
+    title: "Upcoming NFT Drops",
+    href: "/nft-drops",
+    icon: "bi bi-speedometer2",
+  },
+  {
+    title: "Previous Drops",
+    href: "/nft-drops-historical",
+    icon: "bi bi-bell",
+  },
+  {
+    title: "Artists",
+    href: "/artists",
+    icon: "bi bi-bell",
+  },
+  {
+    title: "Portfolio",
+    href: "/portfolio",
+    icon: "bi bi-patch-check",
+  },
+  {
+    title: "Profile",
+    href: "/profile",
+    icon: "bi bi-hdd-stack",
+  }
+];
+
 const Sidebar = ({ showMobilemenu }) => {
   let curl = useRouter();
   const location = curl.pathname;
@@ -78,7 +107,26 @@ const Sidebar = ({ showMobilemenu }) => {
       </div>
       <div className="pt-4 mt-2">
         <Nav vertical className="sidebarNav">
-          <p className="text-muted" tag="h6">Funding Rounds</p>
+
+        <p className="text-muted" tag="h6">Fanfund</p>
+          {navigation2.map((navi, index) => (
+            <NavItem key={index} className="sidenav-bg">
+              <Link href={navi.href}>
+                <a
+                  className={
+                    location === navi.href
+                      ? "text-primary nav-link py-3"
+                      : "nav-link text-secondary py-3"
+                  }
+                >
+                  <i className={navi.icon}></i>
+                  <span className="ms-3 d-inline-block">{navi.title}</span>
+                </a>
+              </Link>
+            </NavItem>
+          ))}
+
+          <p className="text-muted" tag="h6">Default</p>
           {navigation.map((navi, index) => (
             <NavItem key={index} className="sidenav-bg">
               <Link href={navi.href}>
@@ -95,6 +143,7 @@ const Sidebar = ({ showMobilemenu }) => {
               </Link>
             </NavItem>
           ))}
+
           <Button
             color="danger"
             tag="a"
