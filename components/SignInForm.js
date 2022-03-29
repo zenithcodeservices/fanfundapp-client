@@ -75,7 +75,7 @@ function SignInForm() {
       setErrorWarning('')
       UserContext.username = email
       UserContext.password = password
-      router.push({ shallow: true })
+      router.push('/dashboard', undefined, { shallow: true })
       //UserContext.attributes['email'] = email
 
     } catch (error) {

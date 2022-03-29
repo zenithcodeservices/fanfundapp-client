@@ -128,7 +128,7 @@ function Nav(user) {
                                     'px-4 py-2',
                                     'bg-palette-primary rounded-md text-black font-medium hover:bg-palette-dark'
                                   )}
-                                >{UserContext.username}'s Dashboard</p>
+                                >Dashboard</p>
                               </Link></>
                         )}
                       </div>

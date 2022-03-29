@@ -1,0 +1,13 @@
+.artistInfo {
+    height: 400px;
+    background-color: gray;
+    position:static;
+}
+
+
+@media screen and (max-width: 991px) {
+    .desktopColumn {
+        display: none;
+    }
+
+}
