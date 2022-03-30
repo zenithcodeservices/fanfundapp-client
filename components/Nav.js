@@ -31,9 +31,14 @@ useEffect(() => {
 
 async function signOut() {
   try {
-      console.log("Signing out")
+    console.log("Printing UserContext")
+    console.log(UserContext.username)
+    console.log("Signing out")
+
       UserContext.username = null
       UserContext.password = null
+      console.log("Printing UserContext")
+      console.log(UserContext.username)
       await Auth.signOut();
       
 
@@ -52,7 +57,7 @@ function Nav(user) {
             <div className="max-w-6xl mx-auto px-2 sm:px-6 lg:px-8 font-primary">
               <div className="relative flex items-center justify-between h-16 sm:h-20">
                 <Link passHref href='/'>
-                  <p className="flex items-center" style={{ textDecoration: 'none', cursor: 'pointer' }} href="/">
+                  <p className="flex items-center" style={{ textDecoration: 'none', cursor: 'pointer', marginTop:'1em' }} href="/">
                     <img
                       className="h-14 w-auto"
                       src="/icon.svg"
@@ -76,7 +81,7 @@ function Nav(user) {
                       )}
                     </Disclosure.Button>
                   </div>
-                  <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                  <div style={{margin:'1em 1em 0em 0em'}} className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                     <div className="hidden sm:block sm:ml-6">
                       <div className="flex items-center space-x-4 text-sm text-white">
                         {navigation.map((item) => (
@@ -93,7 +98,7 @@ function Nav(user) {
                             </p>
                           </Link>
                         ))}
-                        {UserContext.username === null ? (
+                        {(UserContext.username === undefined || UserContext.username === null) ? (
                           <><Link
                             passHref
                             key="Login"
@@ -166,7 +171,7 @@ function Nav(user) {
                     </Disclosure.Button>
                   ))}
 
-{UserContext.username === null ? (
+                  {(UserContext.username === undefined || UserContext.username === null) ? (
                           <>
                           <Disclosure.Button
                           key="Login"

@@ -1,7 +1,9 @@
-import { Button, Nav, NavItem } from "reactstrap";
+import { Button, Nav, NavItem, NavbarBrand } from "reactstrap";
 import Logo from "../../logo/Logo";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import LogoWhite from "../../../assets/images/logos/icon.svg";
+import Image from "next/image";
 
 const navigation = [
   {
@@ -64,7 +66,7 @@ const navigation = [
 
 const navigation2 = [
   {
-    title: "Upcoming NFT Drops",
+    title: "NFT Drops",
     href: "/nft-drops",
     icon: "bi bi-speedometer2",
   },
@@ -82,11 +84,6 @@ const navigation2 = [
     title: "Portfolio",
     href: "/portfolio",
     icon: "bi bi-patch-check",
-  },
-  {
-    title: "Profile",
-    href: "/profile",
-    icon: "bi bi-hdd-stack",
   }
 ];
 
@@ -95,32 +92,40 @@ const Sidebar = ({ showMobilemenu }) => {
   const location = curl.pathname;
 
   return (
-    <div className="p-3">
-      <div className="d-flex align-items-center">
-        <Logo />
-        <Button
-          close
-          size="sm"
-          className="ms-auto d-lg-none"
-          onClick={showMobilemenu}
-        ></Button>
-      </div>
-      <div className="pt-4 mt-2">
-        <Nav vertical className="sidebarNav">
+    <div style={{backgroundColor: '#2B2B2B'}} className="p-3">
+        <div className="d-flex align-items-center">
+          <Link style={{}} href="/nft-drops">
+            <NavbarBrand>
+              <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                cursor:"pointer"
 
-        <p className="text-muted" tag="h6">Fanfund</p>
+              }}
+              >
+                <Image width={40} height={40} src={LogoWhite} alt="logo"></Image>
+              </div>
+            </NavbarBrand>
+          </Link>
+            <Button
+              style={{color:"white"}}
+              close
+              size="lg"
+              className="text-white ms-auto d-lg-none"
+              onClick={showMobilemenu}
+            ></Button>
+        </div>
+      <div className="pt-4 mt-2">
+        <Nav  vertical className="sidebarNav">
           {navigation2.map((navi, index) => (
             <NavItem key={index} className="sidenav-bg">
               <Link href={navi.href}>
                 <a
-                  className={
-                    location === navi.href
-                      ? "text-primary nav-link py-3"
-                      : "nav-link text-secondary py-3"
-                  }
+                  className="nav-link text-secondary py-3"
                 >
                   <i className={navi.icon}></i>
-                  <span className="ms-3 d-inline-block">{navi.title}</span>
+                  <span className="text-white ms-3 d-inline-block">{navi.title}</span>
                 </a>
               </Link>
             </NavItem>

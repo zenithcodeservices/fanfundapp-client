@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-
+import UserContext from '../../../lib/userContext'
 
 import {
   Navbar,
@@ -18,8 +18,31 @@ import {
 } from "reactstrap";
 import LogoWhite from "../../assets/images/logos/icon.svg";
 import user1 from "../../assets/images/users/user1.jpg";
+import { signInButtonContent } from "aws-amplify";
 
-const Header = ({ showMobmenu }) => {
+
+import { Auth } from 'aws-amplify';
+
+
+
+async function signOut() {
+  try {
+      console.log("Printing UserContext")
+      console.log(UserContext.username)
+      console.log("Signing out")
+      UserContext.username = null
+      UserContext.password = null
+      console.log("Printing UserContext")
+      console.log(UserContext.username)
+      await Auth.signOut();
+
+  } catch (error) {
+      console.log('error signing out: ', error);
+  }
+}
+
+
+const Header = ({showMobmenu }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
 
@@ -35,36 +58,31 @@ const Header = ({ showMobmenu }) => {
           <i className="bi bi-list"></i>
         </Button>
 
-        <NavbarBrand href="/" className="d-lg-none">
-        <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-        }}
-        >
-          <Image width={40} height={40} src={LogoWhite} alt="logo" />
-        </div>
-        </NavbarBrand>
+        <Link href="/nft-drops">
+          <NavbarBrand className="d-lg-none">
+          <div
+          style={{
+            marginLeft:"1em",
+            display: "flex",
+            justifyContent: "center",
+            cursor:"pointer"
+          }}
+          >
+            <Image width={40} height={40} src={LogoWhite} alt="logo" />
+          </div>
+          </NavbarBrand>
+        </Link>
         
       </div>
       <div className="hstack gap-2">
-        <Button
-          color="secondary"
-          size="sm"
-          className="d-sm-block d-md-none"
-          onClick={Handletoggle}
-        >
-          {isOpen ? (
-            <i className="bi bi-x"></i>
-          ) : (
-            <i className="bi bi-three-dots-vertical"></i>
-          )}
-        </Button>
+
       </div>
 
-      <Collapse navbar isOpen={isOpen}>
-        <Nav className="me-auto" navbar>
-{/*           <NavItem>
+      {/* <Collapse navbar isOpen={isOpen}> */}
+
+
+{/*         <Nav className="me-auto" navbar>
+           <NavItem>
             <Link href="/">
               <a className="nav-link">Starter</a>
             </Link>
@@ -84,8 +102,8 @@ const Header = ({ showMobmenu }) => {
               <DropdownItem divider />
               <DropdownItem>Reset</DropdownItem>
             </DropdownMenu>
-          </UncontrolledDropdown> */}
-        </Nav>
+          </UncontrolledDropdown>
+        </Nav> */}
         
         <Dropdown isOpen={dropdownOpen} toggle={toggle}>
           <DropdownToggle color="customcolor">
@@ -101,15 +119,19 @@ const Header = ({ showMobmenu }) => {
           </DropdownToggle>
           <DropdownMenu>
             <DropdownItem header>Info</DropdownItem>
-            <DropdownItem>My Account</DropdownItem>
-            <DropdownItem>Edit Profile</DropdownItem>
+            <Link href='/profile'>
+              <DropdownItem>My Account</DropdownItem>
+            </Link>
             <DropdownItem divider />
-            <DropdownItem>My Balance</DropdownItem>
-            <DropdownItem>Inbox</DropdownItem>
-            <DropdownItem>Logout</DropdownItem>
+            <Link href="/contact">
+              <DropdownItem>Contact Support</DropdownItem>
+            </Link>
+            <Link key="Logout" href="/">
+              <DropdownItem onClick={() => signOut()}>Logout</DropdownItem>
+            </Link>
           </DropdownMenu>
         </Dropdown>
-      </Collapse>
+      {/* </Collapse> */}
     </Navbar>
   );
 };

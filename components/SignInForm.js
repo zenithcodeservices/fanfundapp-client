@@ -75,7 +75,7 @@ function SignInForm() {
       setErrorWarning('')
       UserContext.username = email
       UserContext.password = password
-      router.push('/dashboard', undefined, { shallow: true })
+      router.push('/nft-drops', undefined, { shallow: true })
       //UserContext.attributes['email'] = email
 
     } catch (error) {
