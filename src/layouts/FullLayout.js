@@ -7,6 +7,7 @@ import Nav from '../../components/Nav'
 import { Hub, Auth } from 'aws-amplify';
 import styles from "./FullLayout.module.css"
 import Link from 'next/link'
+import LoadingSpin from "react-loading-spin"
 
 
 
@@ -63,7 +64,7 @@ const FullLayout = ({ children }) => {
     </main>
     ) : (
       <main>
-      <div className={styles['centering-div']}>
+{/*       <div className={styles['centering-div']}>
         <Link href="/">
           <div className={styles['dialog-box']}>
             <div className={styles['dialog-box-innner']}>
@@ -71,7 +72,14 @@ const FullLayout = ({ children }) => {
             </div>
           </div>
         </Link>
+      </div> */}
+
+      <div className={styles['centering-div']}>
+        <div className={styles['dialog-box']}>
+          <LoadingSpin primaryColor="#27E73B" />    
+        </div>
       </div>
+
       </main>
     )}
     </>

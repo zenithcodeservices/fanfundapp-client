@@ -66,25 +66,30 @@ const navigation = [
 
 const navigation2 = [
   {
-    title: "NFT Drops",
+    title: "Gallery",
     href: "/nft-drops",
     icon: "bi bi-speedometer2",
   },
-  {
+/*   {
     title: "Previous Drops",
     href: "/nft-drops-historical",
     icon: "bi bi-bell",
-  },
+  }, */
   {
     title: "Artists",
     href: "/artists",
     icon: "bi bi-bell",
   },
   {
-    title: "Portfolio",
+    title: "Collection",
     href: "/portfolio",
     icon: "bi bi-patch-check",
-  }
+  },
+  {
+    title: "News",
+    href: "/news",
+    icon: "bi bi-bell",
+  },
 ];
 
 const Sidebar = ({ showMobilemenu }) => {
@@ -108,8 +113,9 @@ const Sidebar = ({ showMobilemenu }) => {
               </div>
             </NavbarBrand>
           </Link>
+          <span style={{position:"relative", left:"-10px"}} className="font-semibold text-3xl sm:text-4xl md:text-3xl text-white ">Fanfund</span>
             <Button
-              style={{color:"white"}}
+              style={{filter: "invert(1)"}}
               close
               size="lg"
               className="text-white ms-auto d-lg-none"

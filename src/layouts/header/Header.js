@@ -27,13 +27,8 @@ import { Auth } from 'aws-amplify';
 
 async function signOut() {
   try {
-      console.log("Printing UserContext")
-      console.log(UserContext.username)
-      console.log("Signing out")
       UserContext.username = null
       UserContext.password = null
-      console.log("Printing UserContext")
-      console.log(UserContext.username)
       await Auth.signOut();
 
   } catch (error) {
@@ -54,7 +49,7 @@ const Header = ({showMobmenu }) => {
   return (
     <Navbar color="palette-gray" dark expand="md">
       <div className="d-flex align-items-center">
-        <Button color="secondary" className="d-lg-none" onClick={showMobmenu}>
+        <Button color="dark" className="d-lg-none" onClick={showMobmenu}>
           <i className="bi bi-list"></i>
         </Button>
 
