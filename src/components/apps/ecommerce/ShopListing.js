@@ -8,7 +8,7 @@ const ShopListing = () => {
     <div className="p-4">
       <Row>
         {ShopeItems.map((product) => (
-          <Col sm="6" md="4" lg="3" key={product.id} className="mb-4">
+          <Col sm="6" md="4" lg="4" key={product.id} className="mb-4">
             <Link href="/NFTs/nft-detail">
               <a>
                 <Image

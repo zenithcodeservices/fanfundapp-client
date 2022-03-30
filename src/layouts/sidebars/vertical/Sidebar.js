@@ -97,7 +97,7 @@ const Sidebar = ({ showMobilemenu }) => {
   const location = curl.pathname;
 
   return (
-    <div style={{backgroundColor: '#2B2B2B'}} className="p-3">
+    <div style={{backgroundColor: '#2b2b2b'}} className="p-3">
         <div className="d-flex align-items-center">
           <Link style={{}} href="/nft-drops">
             <NavbarBrand>
@@ -122,8 +122,10 @@ const Sidebar = ({ showMobilemenu }) => {
               onClick={showMobilemenu}
             ></Button>
         </div>
+        
       <div className="pt-4 mt-2">
         <Nav  vertical className="sidebarNav">
+
           {navigation2.map((navi, index) => (
             <NavItem key={index} className="sidenav-bg">
               <Link href={navi.href}>
@@ -137,7 +139,7 @@ const Sidebar = ({ showMobilemenu }) => {
             </NavItem>
           ))}
 
-          <p className="text-muted" tag="h6">Default</p>
+{/*           <p className="text-muted" tag="h6">Default</p>
           {navigation.map((navi, index) => (
             <NavItem key={index} className="sidenav-bg">
               <Link href={navi.href}>
@@ -163,7 +165,10 @@ const Sidebar = ({ showMobilemenu }) => {
             href="https://www.wrappixel.com/templates/ample-react-dashboard/?ref=33"
           >
             Upgrade To Pro
-          </Button>
+          </Button> */}
+
+
+
         </Nav>
       </div>
     </div>

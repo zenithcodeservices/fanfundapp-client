@@ -9,5 +9,6 @@
     "amplify/backend/awscloudformation": true,
     "**/.next": true,
     "**/node_modules": true
-  }
+  },
+  "javascript.validate.enable": false
 }
