@@ -14,10 +14,7 @@ import React, { useContext, useState, useEffect } from "react"
 import UserContext from '../../lib/userContext'
 
 import Amplify, { Analytics, Auth, Storage } from "aws-amplify";
-import AddClientUser from "./AddClientImage";
 Storage.configure({ track: true, level: "private" });
-
-import AddClientImage from "./AddClientImage"
 
 
 const ProfileCard = () => {
