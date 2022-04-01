@@ -9,6 +9,7 @@ import {
 } from "reactstrap";
 import PropTypes from "prop-types";
 import Image from "next/image";
+import Link from "next/Link";
 
 const Blog = ({ image, title, subtitle, text, color }) => {
   return (
@@ -18,7 +19,7 @@ const Blog = ({ image, title, subtitle, text, color }) => {
         <CardTitle tag="h5">{title}</CardTitle>
         <CardSubtitle>{subtitle}</CardSubtitle>
         <CardText className="mt-3 text-muted">{text}</CardText>
-        <Button color={color}>Read More</Button>
+        <Link href="https://medium.com/blockchain-manchester/erc-721-metadata-standards-and-ipfs-94b01fea2a89"><Button color={color}>Read More</Button></Link>
       </CardBody>
     </Card>
   );

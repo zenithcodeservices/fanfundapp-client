@@ -54,7 +54,7 @@ const CarouselWidget = () => {
         onExited={() => setAnimating(false)}
         key={item.id}
       >
-        <Image className="w-100 p-img" src={item.src} alt={item.altText} />
+        <Image className="w-100 d-block p-img" src={item.src} alt={item.altText} />
       </CarouselItem>
     );
   });
@@ -62,8 +62,9 @@ const CarouselWidget = () => {
     /*--------------------------------------------------------------------------------*/
     /* Used In Wizard Page                                                            */
     /*--------------------------------------------------------------------------------*/
-    <DashCard>
+
       <Carousel
+        style={{ minHeight: "60vh" }}
         className="primary-carousel position-relative"
         activeIndex={activeIndex}
         next={next}
@@ -74,7 +75,7 @@ const CarouselWidget = () => {
         <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
         <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
       </Carousel>
-    </DashCard>
+
   );
 };
 

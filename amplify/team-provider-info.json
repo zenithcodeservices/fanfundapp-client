@@ -12,8 +12,27 @@
       "AmplifyAppId": "dja0lrc51u0jb"
     },
     "categories": {
+      "function": {
+        "S3Trigger65222b40": {
+          "deploymentBucketName": "amplify-fanfundappnextjs-dev-01535-deployment",
+          "s3Key": "amplify-builds/S3Trigger65222b40-73446677587963736f4f-build.zip"
+        },
+        "fanfundappnextjsb0dfb4d5DefineAuthChallenge": {
+          "deploymentBucketName": "amplify-fanfundappnextjs-dev-01535-deployment",
+          "s3Key": "amplify-builds/fanfundappnextjsb0dfb4d5DefineAuthChallenge-4e777435554948505969-build.zip"
+        },
+        "fanfundappnextjsb0dfb4d5CreateAuthChallenge": {
+          "deploymentBucketName": "amplify-fanfundappnextjs-dev-01535-deployment",
+          "s3Key": "amplify-builds/fanfundappnextjsb0dfb4d5CreateAuthChallenge-574a2f564e7165594734-build.zip"
+        },
+        "fanfundappnextjsb0dfb4d5VerifyAuthChallengeResponse": {
+          "RECAPTCHASECRET": "",
+          "deploymentBucketName": "amplify-fanfundappnextjs-dev-01535-deployment",
+          "s3Key": "amplify-builds/fanfundappnextjsb0dfb4d5VerifyAuthChallengeResponse-567774524b30706d4654-build.zip"
+        }
+      },
       "auth": {
-        "fanfundappnextjsb0dfb4d5": {}
+        "fanfundappnextjsac0a435f": {}
       }
     }
   }

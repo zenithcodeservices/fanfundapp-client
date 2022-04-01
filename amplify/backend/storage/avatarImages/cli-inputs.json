@@ -1,0 +1,13 @@
+{
+  "resourceName": "avatarImages",
+  "policyUUID": "d57f3581",
+  "bucketName": "fanfundappnextjsc2211f08a3044700a3439e7e70a559f",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ],
+  "triggerFunction": "S3Trigger65222b40",
+  "groupAccess": {}
+}

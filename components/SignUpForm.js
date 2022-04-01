@@ -2,15 +2,23 @@ import { useState } from 'react'
 
 import { Auth } from 'aws-amplify';
 
+import Switch from "react-switch";
+
 
 function SignUpForm() {  
-  const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
   const [code, setCode] = useState('')
   const [password, setPassword] = useState('')
   const [errorWarning, setErrorWarning] = useState('')
   const [isSignedUp, setIsSignedUp] = useState(false)
   const [isUnconfirmed, setIsUnconfirmed] = useState(false)
+  const [isArtist, setIsArtist] = useState(false)
+
+  function toggleSwitch() {
+    setIsArtist(!isArtist)
+  }
 
   async function confirmSignUp() {
     try {
@@ -25,15 +33,16 @@ function SignUpForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log('sign up with username', username,', email', email,'and password', password)
+    console.log('sign up with email', email,'and password', password)
     // you can use errorWarning to display an error if something goes wrong with authentication
     try {
       const { user } = await Auth.signUp({
-          username,
-          password,
+          username: email,
+          password: password,
           attributes: {
-              email // optional
-              // other custom attributes 
+              email: email, // optional
+              name: firstName,
+              family_name: lastName,
           }
       });
       console.log(user);
@@ -53,17 +62,26 @@ function SignUpForm() {
         className="mt-8 space-y-4"
         onSubmit={handleSubmit}
         >
-          <div className="rounded-lg-md shadow-sm space-y-4">
-            <div>
-              <label className="sr-only">Username</label>
+            <div style={{display:"flex", justifyContent:"center", gap:"1em"}}>
+              <label className="sr-only">First Name</label>
               <input
-                id="username"
-                name="username"
+                id="name"
+                name="name"
                 type="text"
                 required
-                className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-palette-primary focus:border-palette-primary sm:text-sm"
-                placeholder="Username"
-                onChange={(e) => setUsername(e.target.value)}
+                className="appearance-none block w-half px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-palette-primary focus:border-palette-primary sm:text-sm"
+                placeholder="First Name"
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+              <label className="sr-only">Last Name</label>
+              <input
+                id="lastName"
+                name="lastName"
+                type="text"
+                required
+                className="appearance-none block w-half px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-palette-primary focus:border-palette-primary sm:text-sm"
+                placeholder="Last Name"
+                onChange={(e) => setLastName(e.target.value)}
               />
             </div>
             <div>
@@ -92,7 +110,10 @@ function SignUpForm() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-          </div>
+            {/* 
+            <p className=" text-white">{isArtist ? (<span>Artist</span>) : (<span>Fan</span>)}</p>
+            <Switch uncheckedIcon={false} checkedIcon={false} onChange={() => toggleSwitch()} checked={!isArtist} />
+ */}
           <div>
             <button
               type="submit"

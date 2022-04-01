@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useReducer } from "react";
+import React, { useCallback, useEffect, useReducer, useState } from "react";
 import { Container } from "reactstrap";
 import Header from "./header/Header";
 import Sidebar from "./sidebars/vertical/Sidebar";
@@ -22,6 +22,10 @@ import nftABI from '../lib/contracts/nftABI'
 import UserContext from "../../lib/userContext";
 
 const INFURA_ID = "2c0bd8cad65a82de37d96ca2f70065a3"
+
+import Amplify, { Storage } from "aws-amplify";
+Storage.configure({ track: true, level: "private" });
+
 
 const providerOptions = {
   walletconnect: {
@@ -73,6 +77,7 @@ const initialState: StateType = {
   // uriList: null,
   // championsFarmItems: null,
   connected: false,
+  username: null
   //userChampion: null,
 }
 
@@ -116,6 +121,13 @@ const FullLayout = ({ children }) => {
     connect: function () {},
     disconnect: function () {},
     connected: false,
+    username: null,
+    attributes: {
+      email: null,
+      name: null,
+      family_name: null,
+    },
+    img: null,
   }
 
   const [state, dispatch] = useReducer(reducer, initialState)
@@ -176,6 +188,34 @@ const FullLayout = ({ children }) => {
     [provider]
   )
 
+  useEffect(() => {
+    onPageRendered();
+  }, []);
+
+  const onPageRendered = async () => {
+    getProfilePicture();
+  };
+
+  const getProfilePicture = () => {
+    Storage.get(`${UserContext.username}-avatar.png`)
+      .then(url => {
+        var myRequest = new Request(url);
+        fetch(myRequest).then(function(response) {
+          if (response.status === 200) {
+            console.log(url)
+            setTimeout(() => {
+              setImage(url);
+              userContext.img = url
+              console.log(userContext.img)
+            }, 10);
+          }
+        });
+      })
+      .catch(err => console.log(err));
+  };
+
+  const [image, setImage] = useState("");
+
 
   React.useEffect(() => {
 
@@ -187,6 +227,7 @@ const FullLayout = ({ children }) => {
       try {
         let user = await Auth.currentAuthenticatedUser()
         setUser(user)
+        const username = user.username
       } catch {
         setUser(null)
       }

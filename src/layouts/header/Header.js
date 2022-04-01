@@ -33,6 +33,7 @@ async function signOut() {
   try {
       UserContext.username = null
       UserContext.password = null
+      UserContext.img = ''
       await Auth.signOut();
 
   } catch (error) {
@@ -125,8 +126,8 @@ const Header = ({showMobmenu }) => {
           <Dropdown isOpen={dropdownOpen} toggle={toggle}>
             <DropdownToggle color="customcolor">
               <div style={{ lineHeight: "0px" }}>
-                <Image
-                  src={user1}
+                  <Image
+                  src={UserContext.img ? UserContext.img : user1}
                   alt="profile"
                   className="rounded-circle"
                   width="30"

@@ -15,7 +15,7 @@ const BlogData = [
   {
     image: bg1,
     title: "This is simple blog",
-    subtitle: "2 comments, 1 Like",
+    subtitle: "Posted 4 days ago",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content.",
     btnbg: "primary",
@@ -23,7 +23,7 @@ const BlogData = [
   {
     image: bg2,
     title: "Lets be simple blog",
-    subtitle: "2 comments, 1 Like",
+    subtitle: "Posted 4 days ago",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content.",
     btnbg: "primary",
@@ -31,7 +31,7 @@ const BlogData = [
   {
     image: bg3,
     title: "Don't Lamp blog",
-    subtitle: "2 comments, 1 Like",
+    subtitle: "Posted 4 days ago",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content.",
     btnbg: "primary",
@@ -39,7 +39,7 @@ const BlogData = [
   {
     image: bg4,
     title: "Simple is beautiful",
-    subtitle: "2 comments, 1 Like",
+    subtitle: "Posted 4 days ago",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content.",
     btnbg: "primary",

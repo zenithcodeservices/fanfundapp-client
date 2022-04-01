@@ -8,11 +8,21 @@ import CarouselWidget from "../src/components/CarouselWidget"
 export default function UpcomingNFTDrops() {
   return (
       
-      <><span style={{ margin: "1em" }} className="font-semibold text-3xl sm:text-4xl md:text-3xl text-gray ">Featured Drops</span><div className="gap-3"></div><CardBody>
+      <>
+      
+      <span style={{ margin: "1em" }} className="font-semibold text-3xl sm:text-4xl md:text-3xl text-gray ">
+        Featured Drops
+      </span>
+      <div style={{ margin: "1em" }}></div>
 
-      <CarouselWidget />
+
+      <CarouselWidget style={{ width: "100vw", minHeight: "60vh"}} />
+
+      <CardBody>
+
       <ShopListing />
-    </CardBody></>
+      </CardBody>
+      </>
   )
 }
 

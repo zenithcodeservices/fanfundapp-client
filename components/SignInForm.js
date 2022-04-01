@@ -70,10 +70,12 @@ function SignInForm() {
     try {
       const user = await Auth.signIn(email, password);
       console.log(user)
+      console.log(user.username)
+      console.log(Auth.currentUserInfo())
       // setSuccessDialog('Sign in successful!')
       setIsUnconfirmed(false)
       setErrorWarning('')
-      UserContext.username = email
+      UserContext.username = user.username
       router.push('/nft-drops', undefined, { shallow: true })
       //UserContext.attributes['email'] = email
 

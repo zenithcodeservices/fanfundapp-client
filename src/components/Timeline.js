@@ -18,6 +18,8 @@ import {
   Input,
 } from "reactstrap";
 
+import ProfileCard from "./ProfileCard"
+
 import img1 from "../assets/images/users/user1.jpg";
 import img2 from "../assets/images/users/user2.jpg";
 import img3 from "../assets/images/users/user3.jpg";
@@ -40,6 +42,7 @@ const Timeline = () => {
   return (
     <>
       <Card>
+        <ProfileCard />
         <Nav tabs className="profile-tab">
  {/*          <NavItem>
             <NavLink
@@ -90,41 +93,34 @@ const Timeline = () => {
               <Col sm="12">
                 <div className="p-4">
                   <Row>
-                    <Col md="3" xs="6" className="border-end">
-                      <strong>Full Name</strong>
-                      <br />
-                      <p className="text-muted">Johnathan Deo</p>
-                    </Col>
-                    <Col md="3" xs="6" className="border-end">
-                      <strong>Mobile</strong>
-                      <br />
-                      <p className="text-muted">(123) 456 7890</p>
-                    </Col>
-                    <Col md="3" xs="6" className="border-end">
+  
+                    <Col md="4" xs="6" className="border-end">
                       <strong>Email</strong>
                       <br />
                       <p className="text-muted">johnathan@admin.com</p>
                     </Col>
-                    <Col md="3" xs="6" className="border-end">
-                      <strong>Location</strong>
+                    <Col md="4" xs="6" className="border-end">
+                      <strong>Shipping Address</strong>
                       <br />
                       <p className="text-muted">London</p>
+                    </Col>
+                    <Col md="4" xs="6" className="border-end">
+                      <strong>Wallet Address</strong>
+                      <br />
+                      <p className="text-muted">0x0</p>
                     </Col>
                   </Row>
                   <p className="mt-4">
                     Donec pede justo, fringilla vel, aliquet nec, vulputate
                     eget, arcu. In enim justo, rhoncus ut, imperdiet a,
-                    venenatis vitae, justo. Nullam dictum felis eu pede mollis
-                    pretium. Integer tincidunt.Cras dapibus. Vivamus elementum
-                    semper nisi. Aenean vulputate eleifend tellus. Aenean leo
-                    ligula, porttitor eu, consequat vitae, eleifend ac, enim.
+                    venenatis vitae.
                   </p>
-                  <h4 className="font-medium mt-4">Skill Set</h4>
+                  <h4 className="font-medium mt-4">Stats</h4>
                   <hr />
                   <h5 className="mt-4">
-                    Wordpress <span className="float-end">80%</span>
+                    NFTs Collected <span className="float-end">8</span>
                   </h5>
-                  <Progress value={2 * 5} />
+{/*                   <Progress value={2 * 5} />
                   <h5 className="mt-4">
                     HTML 5 <span className="float-end">90%</span>
                   </h5>
@@ -136,7 +132,7 @@ const Timeline = () => {
                   <h5 className="mt-4">
                     Photoshop <span className="float-end">70%</span>
                   </h5>
-                  <Progress color="warning" value={75} />
+                  <Progress color="warning" value={75} /> */}
                 </div>
               </Col>
             </Row>
@@ -147,7 +143,11 @@ const Timeline = () => {
                 <div className="p-4">
                   <Form>
                     <FormGroup>
-                      <Label>Full Name</Label>
+                      <Label>First Name</Label>
+                      <Input type="text" placeholder="Shaina Agrawal" />
+                    </FormGroup>
+                    <FormGroup>
+                      <Label>Last Name</Label>
                       <Input type="text" placeholder="Shaina Agrawal" />
                     </FormGroup>
                     <FormGroup>
@@ -155,18 +155,10 @@ const Timeline = () => {
                       <Input type="email" placeholder="Jognsmith@cool.com" />
                     </FormGroup>
                     <FormGroup>
-                      <Label>Password</Label>
-                      <Input type="password" placeholder="Password" />
+                      <Label>Shipping Address</Label>
+                      <Input type="text" placeholder="123 Barrack Street" />
                     </FormGroup>
-                    <FormGroup>
-                      <Label>Phone No</Label>
-                      <Input type="text" placeholder="123 456 1020" />
-                    </FormGroup>
-                    <FormGroup>
-                      <Label>Message</Label>
-                      <Input type="textarea" />
-                    </FormGroup>
-                    <FormGroup>
+{/*                     <FormGroup>
                       <Label>Select Country</Label>
                       <Input type="select">
                         <option>USA</option>
@@ -174,7 +166,7 @@ const Timeline = () => {
                         <option>America</option>
                       </Input>
                     </FormGroup>
-                    <Button color="primary">Update Profile</Button>
+ */}                    <Button color="primary">Update Profile</Button>
                   </Form>
                 </div>
               </Col>
