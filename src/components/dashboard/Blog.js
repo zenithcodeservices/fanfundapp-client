@@ -9,7 +9,7 @@ import {
 } from "reactstrap";
 import PropTypes from "prop-types";
 import Image from "next/image";
-import Link from "next/Link";
+import Link from "next/link";
 
 const Blog = ({ image, title, subtitle, text, color }) => {
   return (

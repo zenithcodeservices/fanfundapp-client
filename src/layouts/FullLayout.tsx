@@ -11,7 +11,6 @@ import WalletConnectProvider from '@walletconnect/web3-provider'
 import { providers, Contract, utils, BigNumber } from 'ethers'
 import WalletLink from 'walletlink'
 import Web3Modal from 'web3modal'
-import { fetchJson } from '@ethersproject/web'
 import { ethers } from "ethers"
 
 import type StateType from '../types/StateType'
