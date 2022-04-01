@@ -197,7 +197,7 @@ const FullLayout = ({ children }) => {
   };
 
   const getProfilePicture = () => {
-    Storage.get(`${UserContext.username}-avatar.png`)
+    Storage.get(`${userContext.username}-avatar.png`)
       .then(url => {
         var myRequest = new Request(url);
         fetch(myRequest).then(function(response) {
@@ -227,7 +227,7 @@ const FullLayout = ({ children }) => {
       try {
         let user = await Auth.currentAuthenticatedUser()
         setUser(user)
-        const username = user.username
+        userContext.username = user.username
       } catch {
         setUser(null)
       }
