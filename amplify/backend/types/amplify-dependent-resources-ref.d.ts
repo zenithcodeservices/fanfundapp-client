@@ -11,6 +11,12 @@ export type AmplifyDependentResourcesAttributes = {
             "CreatedSNSRole": "string"
         }
     },
+    "api": {
+        "fanfundappnextjs": {
+            "GraphQLAPIIdOutput": "string",
+            "GraphQLAPIEndpointOutput": "string"
+        }
+    },
     "function": {
         "S3Trigger65222b40": {
             "Name": "string",

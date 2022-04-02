@@ -64,7 +64,6 @@ const CarouselWidget = () => {
     /*--------------------------------------------------------------------------------*/
 
       <Carousel
-        style={{ minHeight: "60vh" }}
         className="primary-carousel position-relative"
         activeIndex={activeIndex}
         next={next}

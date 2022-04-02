@@ -37,6 +37,7 @@ async function signOut() {
 
       UserContext.username = null
       UserContext.password = null
+      UserContext.img = ''
       console.log("Printing UserContext")
       console.log(UserContext.username)
       await Auth.signOut();

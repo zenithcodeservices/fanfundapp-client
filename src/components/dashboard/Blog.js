@@ -10,11 +10,12 @@ import {
 import PropTypes from "prop-types";
 import Image from "next/image";
 import Link from "next/link";
+import bg1 from "../../assets/images/bg/bg1.jpg";
 
-const Blog = ({ image, title, subtitle, text, color }) => {
+const Blog = ({ title, subtitle, text, color }) => {
   return (
     <Card>
-      <Image alt="Card image cap" src={image} />
+      <Image alt="Card image cap" src={bg1} />
       <CardBody className="p-4">
         <CardTitle tag="h5">{title}</CardTitle>
         <CardSubtitle>{subtitle}</CardSubtitle>

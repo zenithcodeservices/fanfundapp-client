@@ -29,7 +29,23 @@
       }
     }
   },
-  "api": {},
+  "api": {
+    "fanfundappnextjs": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 7
+            }
+          },
+          "additionalAuthenticationProviders": []
+        }
+      }
+    }
+  },
   "function": {
     "S3Trigger65222b40": {
       "service": "Lambda",

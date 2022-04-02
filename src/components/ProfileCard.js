@@ -17,19 +17,29 @@ import Amplify, { Analytics, Auth, Storage } from "aws-amplify";
 Storage.configure({ track: true, level: "private" });
 
 
-const ProfileCard = () => {
+const ProfileCard = (user) => {
 
   useEffect(() => {
     onPageRendered();
+    fetchUserInfo();
+    
   }, []);
 
   const onPageRendered = async () => {
     getProfilePicture();
   };
 
-  const getProfilePicture = () => {
+  const fetchUserInfo = async () => {
+    await Auth.currentAuthenticatedUser().then(user => {
+      setFirstName(user.attributes.name)
+      setLastName(user.attributes.family_name)
+    })
+  }
+  
+
+  const getProfilePicture = async () => {
     console.log(`${UserContext.username}-avatar.png`)
-    Storage.get(`${UserContext.username}-avatar.png`)
+    await Storage.get(`${UserContext.username}-avatar.png`)
       .then(url => {
         var myRequest = new Request(url);
         fetch(myRequest).then(function(response) {
@@ -46,6 +56,9 @@ const ProfileCard = () => {
   };
 
   const [image, setImage] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
 
 
   let fileInput = React.createRef();
@@ -101,7 +114,7 @@ const ProfileCard = () => {
         </div>
 
         <CardTitle className="mb-1 mt-3" tag="h4">
-          John Appleseed
+          {firstName} {lastName}
         </CardTitle>
 
         <CardSubtitle className="mb-3 pb-1 text-muted">

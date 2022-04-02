@@ -16,36 +16,57 @@ import bg2 from "../src/assets/images/bg/bg2.jpg";
 import bg3 from "../src/assets/images/bg/bg3.jpg";
 import bg4 from "../src/assets/images/bg/bg4.jpg";
 import Image from "next/image";
+import { API } from "@aws-amplify/api";
+import React, { useContext, useState, useEffect } from "react"
+import Amplify, { Analytics, Auth, Storage } from "aws-amplify";
 
-const BlogData = [
 
-  {
-    image: bg2,
-    title: "Lets be simple blog",
-    subtitle: "Posted 4 days ago",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    btnbg: "primary",
-  },
-  {
-    image: bg3,
-    title: "Don't Lamp blog",
-    subtitle: "Posted 4 days ago",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    btnbg: "primary",
-  },
-  {
-    image: bg4,
-    title: "Simple is beautiful",
-    subtitle: "Posted 4 days ago",
-    description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    btnbg: "primary",
-  },
-];
+
+
+
+
+const listPostsFromUpdatesBlogQuery = /* GraphQL */ `
+    query ListPostsFromUpdatesBlog {
+      listPosts(filter: {blogID: {eq: "3cff1b23-a5cd-4dd0-9741-82c917c9a488"}}) {
+        items {
+          createdAt
+          description
+          id
+          postcontent
+          title
+        }
+      }
+    }
+  `
 
 const Cards = () => {
+
+  const [blogData, setBlogData] = useState(null);
+
+  useEffect(() => {
+    fetchBlogInfo();
+    
+  }, []);
+
+  const fetchBlogInfo = async () => {
+    //const currentUser = await Auth.currentAuthenticatedUser();
+    try {
+        await API.graphql({
+            query: listPostsFromUpdatesBlogQuery
+        }).then(result => {
+          const items = result['data']['listPosts']['items']
+          
+          console.log(result['data']['listPosts']['items'])
+          setBlogData(items)
+          console.log(blogData)
+        })
+        
+    } catch (err) {
+        console.log(err);
+    }
+  }
+
+
   return (
     <div>
       {/* --------------------------------------------------------------------------------*/}
@@ -53,14 +74,14 @@ const Cards = () => {
       {/* --------------------------------------------------------------------------------*/}
       <h5 className="mb-3">News</h5>
       <Row>
-        {BlogData.map((blg) => (
+        {blogData !== null && blogData.length>0 && blogData.map((blg) => (
           <Col sm="6" lg="6" xl="4" key={blg.title}>
             <Blog
-              image={blg.image}
+              //image={blg.image}
               title={blg.title}
-              subtitle={blg.subtitle}
+              //subtitle={blg.subtitle}
               text={blg.description}
-              color={blg.btnbg}
+              color="primary"
             />
           </Col>
         ))}

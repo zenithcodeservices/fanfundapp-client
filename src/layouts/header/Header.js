@@ -137,6 +137,7 @@ const Header = ({showMobmenu }) => {
             </DropdownToggle>
             <DropdownMenu>
               <DropdownItem header>Info</DropdownItem>
+              {/* <DropdownItem header>Hello {UserContext.attributes["name"] ? UserContext.attributes["name"] : "" }</DropdownItem> */}
               <Link href='/profile'>
                 <DropdownItem>My Account</DropdownItem>
               </Link>

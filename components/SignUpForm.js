@@ -22,7 +22,7 @@ function SignUpForm() {
 
   async function confirmSignUp() {
     try {
-      await Auth.confirmSignUp(username, code);
+      await Auth.confirmSignUp(email, code);
       setIsUnconfirmed(false)
     } catch (error) {
         console.log('error confirming sign up', error);

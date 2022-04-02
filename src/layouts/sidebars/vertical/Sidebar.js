@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import LogoWhite from "../../../assets/images/logos/icon.svg";
 import Image from "next/image";
+import {DropdownItem, Badge} from "reactstrap";
 
 const navigation = [
   {
@@ -138,6 +139,21 @@ const Sidebar = ({ showMobilemenu }) => {
               </Link>
             </NavItem>
           ))}
+          <DropdownItem divider />
+          <NavItem key="Marketplace" className="sidenav-bg">
+              <Link href="#">
+                <a
+                  className="nav-link text-secondary py-3"
+                >
+                  <i className="bi bi-bell"></i>
+                  <span className="text-white ms-3 d-inline-block">Marketplace</span>
+                  <Badge style={{marginLeft:"1em"}} color="primary" pill>
+                    Soon
+                  </Badge>
+                </a>
+              </Link>
+            </NavItem>
+
 
 {/*           <p className="text-muted" tag="h6">Default</p>
           {navigation.map((navi, index) => (
