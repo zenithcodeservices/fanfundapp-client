@@ -55,10 +55,8 @@ const Cards = () => {
             query: listPostsFromUpdatesBlogQuery
         }).then(result => {
           const items = result['data']['listPosts']['items']
-          
-          console.log(result['data']['listPosts']['items'])
+          console.log(items[0])
           setBlogData(items)
-          console.log(blogData)
         })
         
     } catch (err) {
@@ -79,8 +77,9 @@ const Cards = () => {
             <Blog
               //image={blg.image}
               title={blg.title}
-              //subtitle={blg.subtitle}
-              text={blg.description}
+              subtitle={blg.description}
+              text={blg.postcontent}
+              id={blg.id}
               color="primary"
             />
           </Col>
