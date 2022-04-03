@@ -6,6 +6,7 @@ import LogoWhite from "../../../assets/images/logos/icon.svg";
 import Image from "next/image";
 import {DropdownItem, Badge} from "reactstrap";
 
+
 const navigation = [
   {
     title: "Dashboard",
