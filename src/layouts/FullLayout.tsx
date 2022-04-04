@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useReducer, useState } from "react";
-import { Container } from "reactstrap";
+import {Container, Toast, ToastBody, ToastHeader, Button} from "reactstrap";
 import Header from "./header/Header";
 import Sidebar from "./sidebars/vertical/Sidebar";
 import Nav from '../../components/Nav'
@@ -12,6 +12,7 @@ import { providers, Contract, utils, BigNumber } from 'ethers'
 import WalletLink from 'walletlink'
 import Web3Modal from 'web3modal'
 import { ethers } from "ethers"
+
 
 import type StateType from '../types/StateType'
 import type ActionType from '../types/ActionType'
@@ -133,6 +134,7 @@ const FullLayout = ({ children }) => {
 
   const [open, setOpen] = React.useState(false);
   const [user, setUser] = React.useState(null)
+  const [errorDialog, setErrorDialog] = React.useState(false);
 
   // eslint-disable-next-line no-use-before-define
   const {
@@ -171,6 +173,10 @@ const FullLayout = ({ children }) => {
               if (user.attributes['custom:custom:secondaryAddy'] !== undefined){
                 console.log("no more wallet slots left")
                 breakCheck = true
+                setErrorDialog(true)
+                setTimeout(function(){
+                  setErrorDialog(false);
+                } ,3000)
                 return
               }
               else {
@@ -361,8 +367,18 @@ const FullLayout = ({ children }) => {
         {/********Content Area**********/}
 
         <div className="contentArea">
+          
+          {errorDialog && (
+            <Toast fade={false} style={{position:"absolute", top:"8%", right:"1%", zIndex:"5"}}>
+              <ToastHeader icon="danger">You have exceeded number of wallets</ToastHeader>
+              <ToastBody>
+                Please remove existing wallet, or connect using a known wallet
+              </ToastBody>
+            </Toast>
+          )}
           {/********header**********/}
           <Header showMobmenu={() => showMobilemenu()} />
+          <Button style={{margin:"1em"}}>Create Custodial</Button>
 
           {/********Middle Content**********/}
           <Container className="p-4 wrapper" fluid>

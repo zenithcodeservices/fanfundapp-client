@@ -14,6 +14,9 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
+  Toast,
+  ToastBody,
+  ToastHeader,
   DropdownItem,
   Dropdown,
   Button,
@@ -135,8 +138,11 @@ const Header = ({showMobmenu }) => {
               <DropdownItem header>Crypto Wallets</DropdownItem>
               <DropdownItem divider />
               <DropdownItem style={{filter: "grayscale(1)"}}><ConnectButton /></DropdownItem>
-              {user ? (<DropdownItem style={{margin: "0", wordBreak:"break-all"}} header>Primary:<br></br> {user.attributes['custom:custom:primaryAddy'].slice(0, 8) + "..." + user.attributes['custom:custom:primaryAddy'].slice(35)}</DropdownItem>):(<span></span>)}
-              {user ? (<DropdownItem style={{margin: "0", wordBreak:"break-all"}} header>Secondary:<br></br> {user.attributes['custom:custom:secondaryAddy'].slice(0, 8) + "..." + user.attributes['custom:custom:secondaryAddy'].slice(35)}</DropdownItem>):(<span></span>)}
+              {user ? (<DropdownItem style={{margin: "0"}} header>Primary:<br></br> {user.attributes['custom:custom:primaryAddy'] !== undefined ? (user.attributes['custom:custom:primaryAddy'].slice(0, 8) + "..." + user.attributes['custom:custom:primaryAddy'].slice(35)) : ""}</DropdownItem>):(<span></span>)}
+              {user ? (<DropdownItem style={{margin: "0"}} header>Secondary:<br></br> {user.attributes['custom:custom:secondaryAddy'] !== undefined ? (user.attributes['custom:custom:secondaryAddy'].slice(0, 8) + "..." + user.attributes['custom:custom:secondaryAddy'].slice(35)) : ""}</DropdownItem>):(<span></span>)}
+              <DropdownItem divider />
+              <DropdownItem header>Fanfund Wallet</DropdownItem>
+              <Button>Add</Button>
               
             </DropdownMenu>
           </Dropdown>
@@ -169,6 +175,8 @@ const Header = ({showMobmenu }) => {
             </DropdownMenu>
           </Dropdown>
         </div>
+
+
 
       {/* </Collapse> */}
     </Navbar>
