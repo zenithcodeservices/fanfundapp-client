@@ -55,6 +55,22 @@ const Header = ({showMobmenu }) => {
     setIsOpen(!isOpen);
   };
 
+
+  const [user, setUser] = React.useState(null)
+
+  React.useEffect(() => {
+    getUserInfo();
+  }, []);
+
+
+  const getUserInfo = async () => {
+    await Auth.currentAuthenticatedUser().then(user => {
+      setUser(user)
+    })
+  };
+
+
+
   return (
 
     <Navbar color="palette-gray" dark expand="md">
@@ -119,6 +135,8 @@ const Header = ({showMobmenu }) => {
               <DropdownItem header>Crypto Wallets</DropdownItem>
               <DropdownItem divider />
               <DropdownItem style={{filter: "grayscale(1)"}}><ConnectButton /></DropdownItem>
+              {user ? (<DropdownItem style={{margin: "0", wordBreak:"break-all"}} header>Primary:<br></br> {user.attributes['custom:custom:primaryAddy'].slice(0, 8) + "..." + user.attributes['custom:custom:primaryAddy'].slice(35)}</DropdownItem>):(<span></span>)}
+              {user ? (<DropdownItem style={{margin: "0", wordBreak:"break-all"}} header>Secondary:<br></br> {user.attributes['custom:custom:secondaryAddy'].slice(0, 8) + "..." + user.attributes['custom:custom:secondaryAddy'].slice(35)}</DropdownItem>):(<span></span>)}
               
             </DropdownMenu>
           </Dropdown>

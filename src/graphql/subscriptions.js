@@ -133,3 +133,258 @@ export const onDeletePost = /* GraphQL */ `
     }
   }
 `;
+export const onCreateArtist = /* GraphQL */ `
+  subscription OnCreateArtist {
+    onCreateArtist {
+      id
+      name
+      posts {
+        items {
+          id
+          title
+          description
+          postcontent
+          dropDateTime
+          streamingPercentage
+          isSoldOut
+          artistID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateArtist = /* GraphQL */ `
+  subscription OnUpdateArtist {
+    onUpdateArtist {
+      id
+      name
+      posts {
+        items {
+          id
+          title
+          description
+          postcontent
+          dropDateTime
+          streamingPercentage
+          isSoldOut
+          artistID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteArtist = /* GraphQL */ `
+  subscription OnDeleteArtist {
+    onDeleteArtist {
+      id
+      name
+      posts {
+        items {
+          id
+          title
+          description
+          postcontent
+          dropDateTime
+          streamingPercentage
+          isSoldOut
+          artistID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateDrop = /* GraphQL */ `
+  subscription OnCreateDrop {
+    onCreateDrop {
+      id
+      title
+      description
+      postcontent
+      dropDateTime
+      streamingPercentage
+      isSoldOut
+      artistID
+      artist {
+        id
+        name
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateDrop = /* GraphQL */ `
+  subscription OnUpdateDrop {
+    onUpdateDrop {
+      id
+      title
+      description
+      postcontent
+      dropDateTime
+      streamingPercentage
+      isSoldOut
+      artistID
+      artist {
+        id
+        name
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteDrop = /* GraphQL */ `
+  subscription OnDeleteDrop {
+    onDeleteDrop {
+      id
+      title
+      description
+      postcontent
+      dropDateTime
+      streamingPercentage
+      isSoldOut
+      artistID
+      artist {
+        id
+        name
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateTier = /* GraphQL */ `
+  subscription OnCreateTier {
+    onCreateTier {
+      id
+      title
+      perkDescription
+      collectorAddresses
+      priceUSD
+      isSoldOut
+      percentageOwnership
+      numberOfTokens
+      dropID
+      drop {
+        id
+        title
+        description
+        postcontent
+        dropDateTime
+        streamingPercentage
+        isSoldOut
+        artistID
+        artist {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateTier = /* GraphQL */ `
+  subscription OnUpdateTier {
+    onUpdateTier {
+      id
+      title
+      perkDescription
+      collectorAddresses
+      priceUSD
+      isSoldOut
+      percentageOwnership
+      numberOfTokens
+      dropID
+      drop {
+        id
+        title
+        description
+        postcontent
+        dropDateTime
+        streamingPercentage
+        isSoldOut
+        artistID
+        artist {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteTier = /* GraphQL */ `
+  subscription OnDeleteTier {
+    onDeleteTier {
+      id
+      title
+      perkDescription
+      collectorAddresses
+      priceUSD
+      isSoldOut
+      percentageOwnership
+      numberOfTokens
+      dropID
+      drop {
+        id
+        title
+        description
+        postcontent
+        dropDateTime
+        streamingPercentage
+        isSoldOut
+        artistID
+        artist {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;

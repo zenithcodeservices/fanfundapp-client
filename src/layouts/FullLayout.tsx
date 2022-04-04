@@ -156,6 +156,58 @@ const FullLayout = ({ children }) => {
 
     const signer = web3Provider.getSigner()
     const address = await signer.getAddress()
+
+    var breakCheck = false
+
+    await Auth.currentAuthenticatedUser().then(user => {
+      try {
+        console.log(user.attributes['custom:custom:primaryAddy'])
+        if(user.attributes['custom:custom:primaryAddy'] !== address){
+          if (user.attributes['custom:custom:primaryAddy'] !== null){
+            console.log("primaryWalletAddy is taken")
+            if(user.attributes['custom:custom:secondaryAddy'] !== address){
+              console.log("user.attributes['custom:custom:secondaryAddy']")
+              console.log(user.attributes['custom:custom:secondaryAddy'])
+              if (user.attributes['custom:custom:secondaryAddy'] !== undefined){
+                console.log("no more wallet slots left")
+                breakCheck = true
+                return
+              }
+              else {
+                let result = Auth.updateUserAttributes(user, {
+                  'custom:custom:secondaryAddy': address
+                })
+                console.log(result)
+              }
+            }
+            else {
+              console.log("secondaryAddy is already stored, no more slots left")
+            }
+          }
+          else {
+            let result = Auth.updateUserAttributes(user, {
+              'custom:custom:primaryAddy': address
+            })
+            console.log(result)
+          }
+        }
+        else {
+          console.log("primaryWalletAddy is already stored")
+        }
+
+
+        
+      }
+      catch (err) {
+        console.log(err)
+      }
+
+    })
+
+    if(breakCheck){
+      return
+    }
+
     console.log(address)
 
     const network = await web3Provider.getNetwork()

@@ -91,3 +91,173 @@ export const listPosts = /* GraphQL */ `
     }
   }
 `;
+export const getArtist = /* GraphQL */ `
+  query GetArtist($id: ID!) {
+    getArtist(id: $id) {
+      id
+      name
+      posts {
+        items {
+          id
+          title
+          description
+          postcontent
+          dropDateTime
+          streamingPercentage
+          isSoldOut
+          artistID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listArtists = /* GraphQL */ `
+  query ListArtists(
+    $filter: ModelArtistFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listArtists(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getDrop = /* GraphQL */ `
+  query GetDrop($id: ID!) {
+    getDrop(id: $id) {
+      id
+      title
+      description
+      postcontent
+      dropDateTime
+      streamingPercentage
+      isSoldOut
+      artistID
+      artist {
+        id
+        name
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listDrops = /* GraphQL */ `
+  query ListDrops(
+    $filter: ModelDropFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listDrops(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        title
+        description
+        postcontent
+        dropDateTime
+        streamingPercentage
+        isSoldOut
+        artistID
+        artist {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getTier = /* GraphQL */ `
+  query GetTier($id: ID!) {
+    getTier(id: $id) {
+      id
+      title
+      perkDescription
+      collectorAddresses
+      priceUSD
+      isSoldOut
+      percentageOwnership
+      numberOfTokens
+      dropID
+      drop {
+        id
+        title
+        description
+        postcontent
+        dropDateTime
+        streamingPercentage
+        isSoldOut
+        artistID
+        artist {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listTiers = /* GraphQL */ `
+  query ListTiers(
+    $filter: ModelTierFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listTiers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        title
+        perkDescription
+        collectorAddresses
+        priceUSD
+        isSoldOut
+        percentageOwnership
+        numberOfTokens
+        dropID
+        drop {
+          id
+          title
+          description
+          postcontent
+          dropDateTime
+          streamingPercentage
+          isSoldOut
+          artistID
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;

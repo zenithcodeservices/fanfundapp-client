@@ -56,6 +56,7 @@ const Cards = () => {
         }).then(result => {
           const items = result['data']['listPosts']['items']
           console.log(items[0])
+          console.log(items[0]['createdAt'])
           setBlogData(items)
         })
         
@@ -76,6 +77,7 @@ const Cards = () => {
           <Col sm="6" lg="6" xl="4" key={blg.title}>
             <Blog
               //image={blg.image}
+              createdAt={blg.createdAt}
               title={blg.title}
               subtitle={blg.description}
               text={blg.postcontent}

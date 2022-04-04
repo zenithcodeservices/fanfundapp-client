@@ -12,3 +12,34 @@ type Post @model @key(name: "byBlog", fields: ["blogID"]) {
   blogID: ID!
   blog: Blog @connection(fields: ["blogID"])
 }
+
+type Artist @model {
+  id: ID!
+  name: String!
+  posts: [Drop] @connection(keyName: "byArtist", fields: ["id"])
+}
+
+type Drop @model @key(name: "byArtist", fields: ["artistID"]) {
+  id: ID!
+  title: String!
+  description: String!
+  postcontent: String!
+  dropDateTime: String!
+  streamingPercentage: Int!
+  isSoldOut: Boolean!
+  artistID: ID!
+  artist: Artist @connection(fields: ["artistID"])
+}
+
+type Tier @model @key(name: "byDrop", fields: ["dropID"]) {
+  id: ID!
+  title: String!
+  perkDescription: [String]!
+  collectorAddresses: [String]
+  priceUSD: String!
+  isSoldOut: Boolean!
+  percentageOwnership: Float!
+  numberOfTokens: Int!
+  dropID: ID!
+  drop: Drop @connection(fields: ["dropID"])
+}

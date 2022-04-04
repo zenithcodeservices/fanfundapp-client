@@ -16,7 +16,7 @@ export default function ConnectButton () {
             <div className={connectedClassName}
               onClick={disconnect}>
               <div>
-                {address}
+                {address.slice(0, 8) + "..." + address.slice(35)}
               </div>
             </div>
           ) : (

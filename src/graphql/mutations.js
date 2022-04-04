@@ -151,3 +151,285 @@ export const deletePost = /* GraphQL */ `
     }
   }
 `;
+export const createArtist = /* GraphQL */ `
+  mutation CreateArtist(
+    $input: CreateArtistInput!
+    $condition: ModelArtistConditionInput
+  ) {
+    createArtist(input: $input, condition: $condition) {
+      id
+      name
+      posts {
+        items {
+          id
+          title
+          description
+          postcontent
+          dropDateTime
+          streamingPercentage
+          isSoldOut
+          artistID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateArtist = /* GraphQL */ `
+  mutation UpdateArtist(
+    $input: UpdateArtistInput!
+    $condition: ModelArtistConditionInput
+  ) {
+    updateArtist(input: $input, condition: $condition) {
+      id
+      name
+      posts {
+        items {
+          id
+          title
+          description
+          postcontent
+          dropDateTime
+          streamingPercentage
+          isSoldOut
+          artistID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteArtist = /* GraphQL */ `
+  mutation DeleteArtist(
+    $input: DeleteArtistInput!
+    $condition: ModelArtistConditionInput
+  ) {
+    deleteArtist(input: $input, condition: $condition) {
+      id
+      name
+      posts {
+        items {
+          id
+          title
+          description
+          postcontent
+          dropDateTime
+          streamingPercentage
+          isSoldOut
+          artistID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createDrop = /* GraphQL */ `
+  mutation CreateDrop(
+    $input: CreateDropInput!
+    $condition: ModelDropConditionInput
+  ) {
+    createDrop(input: $input, condition: $condition) {
+      id
+      title
+      description
+      postcontent
+      dropDateTime
+      streamingPercentage
+      isSoldOut
+      artistID
+      artist {
+        id
+        name
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateDrop = /* GraphQL */ `
+  mutation UpdateDrop(
+    $input: UpdateDropInput!
+    $condition: ModelDropConditionInput
+  ) {
+    updateDrop(input: $input, condition: $condition) {
+      id
+      title
+      description
+      postcontent
+      dropDateTime
+      streamingPercentage
+      isSoldOut
+      artistID
+      artist {
+        id
+        name
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteDrop = /* GraphQL */ `
+  mutation DeleteDrop(
+    $input: DeleteDropInput!
+    $condition: ModelDropConditionInput
+  ) {
+    deleteDrop(input: $input, condition: $condition) {
+      id
+      title
+      description
+      postcontent
+      dropDateTime
+      streamingPercentage
+      isSoldOut
+      artistID
+      artist {
+        id
+        name
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createTier = /* GraphQL */ `
+  mutation CreateTier(
+    $input: CreateTierInput!
+    $condition: ModelTierConditionInput
+  ) {
+    createTier(input: $input, condition: $condition) {
+      id
+      title
+      perkDescription
+      collectorAddresses
+      priceUSD
+      isSoldOut
+      percentageOwnership
+      numberOfTokens
+      dropID
+      drop {
+        id
+        title
+        description
+        postcontent
+        dropDateTime
+        streamingPercentage
+        isSoldOut
+        artistID
+        artist {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateTier = /* GraphQL */ `
+  mutation UpdateTier(
+    $input: UpdateTierInput!
+    $condition: ModelTierConditionInput
+  ) {
+    updateTier(input: $input, condition: $condition) {
+      id
+      title
+      perkDescription
+      collectorAddresses
+      priceUSD
+      isSoldOut
+      percentageOwnership
+      numberOfTokens
+      dropID
+      drop {
+        id
+        title
+        description
+        postcontent
+        dropDateTime
+        streamingPercentage
+        isSoldOut
+        artistID
+        artist {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteTier = /* GraphQL */ `
+  mutation DeleteTier(
+    $input: DeleteTierInput!
+    $condition: ModelTierConditionInput
+  ) {
+    deleteTier(input: $input, condition: $condition) {
+      id
+      title
+      perkDescription
+      collectorAddresses
+      priceUSD
+      isSoldOut
+      percentageOwnership
+      numberOfTokens
+      dropID
+      drop {
+        id
+        title
+        description
+        postcontent
+        dropDateTime
+        streamingPercentage
+        isSoldOut
+        artistID
+        artist {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;

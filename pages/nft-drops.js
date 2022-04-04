@@ -16,7 +16,9 @@ export default function UpcomingNFTDrops() {
       <div style={{ margin: "1em" }}></div>
 
 
-      <CarouselWidget style={{ width: "100vw", minHeight: "60vh"}} />
+      <div style={{position:"relative", zIndex:"0"}}>
+        <CarouselWidget style={{ width: "100vw", minHeight: "60vh"}} />
+      </div>
 
       <CardBody>
 

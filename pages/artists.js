@@ -11,12 +11,56 @@ import bg3 from "../src/assets/images/bg/bg3.jpg";
 import bg4 from "../src/assets/images/bg/bg4.jpg";
 import { Card, CardBody } from 'reactstrap';
 import styles from '../src/assets/css/artists.module.css'
+import React, { useContext, useState, useEffect } from "react"
+import { API } from "@aws-amplify/api";
 
+
+
+
+
+
+const listDropsFromHappyAloneQuery = /* GraphQL */ `
+    query ListDropsFromHappyAlone {
+      listDrops(filter: {artistID: {eq: "aaf82423-b785-43d8-b2fa-e6ce6c0b10b4"}}) {
+        items {
+          title
+          postcontent
+          description
+          dropDateTime
+          streamingPercentage
+          isSoldOut
+        }
+      }
+    }
+  `
 
 
 
 
 export default function Artists() {
+
+  const [blogData, setBlogData] = useState(null);
+
+  useEffect(() => {
+    fetchBlogInfo();
+    
+  }, []);
+
+  const fetchBlogInfo = async () => {
+    //const currentUser = await Auth.currentAuthenticatedUser();
+    try {
+        await API.graphql({
+            query: listDropsFromHappyAloneQuery
+        }).then(result => {
+          const items = result['data']['listDrops']['items']
+          console.log(items[0])
+          setBlogData(items)
+        })
+        
+    } catch (err) {
+        console.log(err);
+    }
+  }  
   return (
       <div>
         <Head>
@@ -27,8 +71,26 @@ export default function Artists() {
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <div>
-          {/***Top Cards***/}
+
+        <h5 className="mb-3">Artists</h5>
+        <Row>
+          {blogData !== null && blogData.length>0 && blogData.map((blg) => (
+            <Col sm="6" lg="6" xl="4" key={blg.title}>
+              <Blog
+                //image={blg.image}
+                createdAt={blg.createdAt}
+                title={blg.title}
+                subtitle={blg.description}
+                text={blg.postcontent}
+                id={blg.id}
+                color="primary"
+              />
+            </Col>
+          ))}
+        </Row>
+
+
+{/*         <div>
             <Row>
               <Col sm="12" lg="8">
               <Card>
@@ -44,9 +106,6 @@ export default function Artists() {
                   </div>
                 </CardBody>
               </Card>
-{/*               <div className={styles['artistInfo']}>
-
-              </div> */}
               </Col>
 
               <Col className={styles.desktopColumn}>
@@ -64,9 +123,7 @@ export default function Artists() {
                           earning="88k"
                           icon="bi bi-twitter"
                         />
-{/*                 </Col>
-                <Col sm="6" lg={{offset:8, size:4}}>
- */}                  <TopCards
+              <TopCards
                     bg="bg-light-warning text-warning"
                     title="New Project"
                     subtitle="Yearly Project"
@@ -84,7 +141,9 @@ export default function Artists() {
             </Row>
 
 
-        </div>
+        </div> */}
+
+
       </div>
   );
 }
