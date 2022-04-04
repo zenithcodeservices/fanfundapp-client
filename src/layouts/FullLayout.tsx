@@ -26,6 +26,11 @@ const INFURA_ID = "2c0bd8cad65a82de37d96ca2f70065a3"
 import Amplify, { Storage } from "aws-amplify";
 Storage.configure({ track: true, level: "private" });
 
+import { CHAIN_CONFIG_TYPE } from "../../config/chainConfig";
+import { WEB3AUTH_NETWORK_TYPE } from "../../config/web3AuthNetwork";
+import { Web3AuthProvider } from "../../services/web3auth";
+
+
 
 const providerOptions = {
   walletconnect: {
@@ -136,6 +141,9 @@ const FullLayout = ({ children }) => {
   const [user, setUser] = React.useState(null)
   const [errorDialog, setErrorDialog] = React.useState(false);
 
+  const [web3AuthNetwork, setWeb3AuthNetwork] = useState<WEB3AUTH_NETWORK_TYPE>("mainnet");
+  const [chain, setChain] = useState<CHAIN_CONFIG_TYPE>("mainnet");
+
   // eslint-disable-next-line no-use-before-define
   const {
     provider,
@@ -163,15 +171,10 @@ const FullLayout = ({ children }) => {
 
     await Auth.currentAuthenticatedUser().then(user => {
       try {
-        console.log(user.attributes['custom:custom:primaryAddy'])
         if(user.attributes['custom:custom:primaryAddy'] !== address){
-          if (user.attributes['custom:custom:primaryAddy'] !== null){
-            console.log("primaryWalletAddy is taken")
+          if (user.attributes['custom:custom:primaryAddy'] !== undefined){
             if(user.attributes['custom:custom:secondaryAddy'] !== address){
-              console.log("user.attributes['custom:custom:secondaryAddy']")
-              console.log(user.attributes['custom:custom:secondaryAddy'])
               if (user.attributes['custom:custom:secondaryAddy'] !== undefined){
-                console.log("no more wallet slots left")
                 breakCheck = true
                 setErrorDialog(true)
                 setTimeout(function(){
@@ -183,18 +186,15 @@ const FullLayout = ({ children }) => {
                 let result = Auth.updateUserAttributes(user, {
                   'custom:custom:secondaryAddy': address
                 })
-                console.log(result)
               }
             }
             else {
-              console.log("secondaryAddy is already stored, no more slots left")
             }
           }
           else {
             let result = Auth.updateUserAttributes(user, {
               'custom:custom:primaryAddy': address
             })
-            console.log(result)
           }
         }
         else {
@@ -352,6 +352,7 @@ const FullLayout = ({ children }) => {
   return (
     <>
     <UserContext.Provider value={userContext}>
+    <Web3AuthProvider chain={chain} web3AuthNetwork={web3AuthNetwork}>
     {user !== null ? (
     <main>
       <div className="pageWrapper d-md-block d-lg-flex">
@@ -378,7 +379,6 @@ const FullLayout = ({ children }) => {
           )}
           {/********header**********/}
           <Header showMobmenu={() => showMobilemenu()} />
-          <Button style={{margin:"1em"}}>Create Custodial</Button>
 
           {/********Middle Content**********/}
           <Container className="p-4 wrapper" fluid>
@@ -407,6 +407,7 @@ const FullLayout = ({ children }) => {
 
       </main>
     )}
+    </Web3AuthProvider>
     </UserContext.Provider>
     </>
   );

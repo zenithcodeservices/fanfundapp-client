@@ -2,6 +2,8 @@ import React from "react"
 import Link from "next/link";
 import Image from "next/image";
 import UserContext from '../../../lib/userContext'
+import { useWeb3Auth } from "../../../services/web3auth";
+
 
 import ConnectButton from '../../components/connectButton'
 
@@ -47,6 +49,9 @@ async function signOut() {
 
 
 const Header = ({showMobmenu }) => {
+
+  const { provider, login, logout, getUserInfo, getAccounts, getBalance, signMessage, signTransaction, signAndSendTransaction, web3Auth, chain } = useWeb3Auth();
+
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
   const [dropdownOpen2, setDropdownOpen2] = React.useState(false);
@@ -62,11 +67,11 @@ const Header = ({showMobmenu }) => {
   const [user, setUser] = React.useState(null)
 
   React.useEffect(() => {
-    getUserInfo();
+    getCognitoUserInfo();
   }, []);
 
 
-  const getUserInfo = async () => {
+  const getCognitoUserInfo = async () => {
     await Auth.currentAuthenticatedUser().then(user => {
       setUser(user)
     })
@@ -138,11 +143,11 @@ const Header = ({showMobmenu }) => {
               <DropdownItem header>Crypto Wallets</DropdownItem>
               <DropdownItem divider />
               <DropdownItem style={{filter: "grayscale(1)"}}><ConnectButton /></DropdownItem>
-              {user ? (<DropdownItem style={{margin: "0"}} header>Primary:<br></br> {user.attributes['custom:custom:primaryAddy'] !== undefined ? (user.attributes['custom:custom:primaryAddy'].slice(0, 8) + "..." + user.attributes['custom:custom:primaryAddy'].slice(35)) : ""}</DropdownItem>):(<span></span>)}
-              {user ? (<DropdownItem style={{margin: "0"}} header>Secondary:<br></br> {user.attributes['custom:custom:secondaryAddy'] !== undefined ? (user.attributes['custom:custom:secondaryAddy'].slice(0, 8) + "..." + user.attributes['custom:custom:secondaryAddy'].slice(35)) : ""}</DropdownItem>):(<span></span>)}
+              {user ? (<DropdownItem style={{margin: "0"}} header>Primary:<br></br> {user.attributes['custom:custom:primaryAddy'] !== undefined ? (user.attributes['custom:custom:primaryAddy'].slice(0, 8) + "..." + user.attributes['custom:custom:primaryAddy'].slice(35)) : ""}</DropdownItem>):(<span>undefined</span>)}
+              {user ? (<DropdownItem style={{margin: "0"}} header>Secondary:<br></br> {user.attributes['custom:custom:secondaryAddy'] !== undefined ? (user.attributes['custom:custom:secondaryAddy'].slice(0, 8) + "..." + user.attributes['custom:custom:secondaryAddy'].slice(35)) : ""}</DropdownItem>):(<span>undefined</span>)}
               <DropdownItem divider />
               <DropdownItem header>Fanfund Wallet</DropdownItem>
-              <Button>Add</Button>
+              <Button color="primary" style={{marginLeft:"1em"}} onClick={login}>Add</Button>
               
             </DropdownMenu>
           </Dropdown>
