@@ -111,10 +111,15 @@ const Sidebar = ({ showMobilemenu }) => {
 
               }}
               >
-                <Image width={40} height={40} src={LogoWhite} alt="logo"></Image>
+ 
+              <Image width={40} height={40} src={LogoWhite} alt="logo"></Image>
+
+              
               </div>
             </NavbarBrand>
+            
           </Link>
+
           <span style={{position:"relative", left:"-10px"}} className="font-semibold text-3xl sm:text-4xl md:text-3xl text-white ">Fanfund</span>
             <Button
               style={{filter: "invert(1)"}}
@@ -123,7 +128,10 @@ const Sidebar = ({ showMobilemenu }) => {
               className="text-white ms-auto d-lg-none"
               onClick={showMobilemenu}
             ></Button>
+
+
         </div>
+
         
       <div className="pt-4 mt-2">
         <Nav  vertical className="sidebarNav">
@@ -185,7 +193,12 @@ const Sidebar = ({ showMobilemenu }) => {
           </Button> */}
 
 
+            <div style={{position:"relative", top:"60px"}} className="text-sm font-medium py-1 text-white">
+              Copyright © {new Date().getFullYear()}{" "}
 
+                Fanfund<br></br><br></br>
+                <small className="text-muted">A venture owned by OPUS CREATIVES LTD registered in the UK under the  Registrar of Companies for England and Wales</small>
+            </div>
         </Nav>
       </div>
     </div>

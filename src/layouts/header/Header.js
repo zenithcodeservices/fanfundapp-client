@@ -4,13 +4,13 @@ import Image from "next/image";
 import UserContext from '../../../lib/userContext'
 import { useWeb3Auth } from "../../../services/web3auth";
 
-
 import ConnectButton from '../../components/connectButton'
 
 import {
   Navbar,
   Collapse,
   Nav,
+  Badge,
   NavItem,
   NavbarBrand,
   UncontrolledDropdown,
@@ -133,6 +133,9 @@ const Header = ({showMobmenu }) => {
         </Nav> */}
 
         <div className="d-flex align-items-center">
+        <Badge style={{fontWeight:"500", marginRight:"1em"}} color="secondary" pill>
+              Alpha
+          </Badge>
           <Dropdown isOpen={dropdownOpen2} toggle={toggle2}>
             <DropdownToggle className={styles["wallet-toggle"]} color="gray">
               <div style={{ lineHeight: "0px" }}>

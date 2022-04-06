@@ -70,7 +70,8 @@ function Footer() {
             <div className="text-sm font-medium py-1 text-white">
               Copyright © {new Date().getFullYear()}{" "}
 
-                Fanfund
+                Fanfund<br></br>
+                <small className="text-muted">A venture owned by OPUS CREATIVES LTD registered in the UK under the Registrar of Companies for England and Wales</small>
             </div>
           </div>
         </div>

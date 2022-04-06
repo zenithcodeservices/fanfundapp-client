@@ -6,6 +6,7 @@ import UserContext from '../lib/userContext'
 import{ classNames } from '../utils/helpers'
 import React, { useContext, useState } from "react"
 import { Authenticator } from '@aws-amplify/ui-react';
+import {Badge} from "reactstrap";
 
 
 
@@ -67,6 +68,9 @@ function Nav(user) {
                       {/* <span className="text-palette-primary">Fanfund</span> */}
                       <span>Fanfund</span>
                     </span>
+                    <Badge style={{fontWeight:"500", marginLeft:"1em"}} color="secondary" pill>
+                      Alpha
+                    </Badge>
 
                   </p>
                 </Link>
