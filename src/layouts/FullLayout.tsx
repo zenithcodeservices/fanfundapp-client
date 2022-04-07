@@ -26,9 +26,6 @@ const INFURA_ID = "2c0bd8cad65a82de37d96ca2f70065a3"
 import Amplify, { Storage } from "aws-amplify";
 Storage.configure({ track: true, level: "private" });
 
-import { CHAIN_CONFIG_TYPE } from "../../config/chainConfig";
-import { WEB3AUTH_NETWORK_TYPE } from "../../config/web3AuthNetwork";
-import { Web3AuthProvider } from "../../services/web3auth";
 
 
 
@@ -141,8 +138,6 @@ const FullLayout = ({ children }) => {
   const [user, setUser] = React.useState(null)
   const [errorDialog, setErrorDialog] = React.useState(false);
 
-  const [web3AuthNetwork, setWeb3AuthNetwork] = useState<WEB3AUTH_NETWORK_TYPE>("mainnet");
-  const [chain, setChain] = useState<CHAIN_CONFIG_TYPE>("mainnet");
 
   // eslint-disable-next-line no-use-before-define
   const {
@@ -352,7 +347,6 @@ const FullLayout = ({ children }) => {
   return (
     <>
     <UserContext.Provider value={userContext}>
-    <Web3AuthProvider chain={chain} web3AuthNetwork={web3AuthNetwork}>
     {user !== null ? (
     <main>
       <div className="pageWrapper d-md-block d-lg-flex">
@@ -407,7 +401,6 @@ const FullLayout = ({ children }) => {
 
       </main>
     )}
-    </Web3AuthProvider>
     </UserContext.Provider>
     </>
   );

@@ -2,7 +2,6 @@ import React from "react"
 import Link from "next/link";
 import Image from "next/image";
 import UserContext from '../../../lib/userContext'
-import { useWeb3Auth } from "../../../services/web3auth";
 
 import ConnectButton from '../../components/connectButton'
 
@@ -50,7 +49,6 @@ async function signOut() {
 
 const Header = ({showMobmenu }) => {
 
-  const { provider, login, logout, getUserInfo, getAccounts, getBalance, signMessage, signTransaction, signAndSendTransaction, web3Auth, chain } = useWeb3Auth();
 
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
@@ -150,7 +148,6 @@ const Header = ({showMobmenu }) => {
               {user ? (<DropdownItem style={{margin: "0"}} header>Secondary:<br></br> {user.attributes['custom:custom:secondaryAddy'] !== undefined ? (user.attributes['custom:custom:secondaryAddy'].slice(0, 8) + "..." + user.attributes['custom:custom:secondaryAddy'].slice(35)) : ""}</DropdownItem>):(<span>undefined</span>)}
               <DropdownItem divider />
               <DropdownItem header>Fanfund Wallet</DropdownItem>
-              <Button color="primary" style={{marginLeft:"1em"}} onClick={login}>Add</Button>
               
             </DropdownMenu>
           </Dropdown>
