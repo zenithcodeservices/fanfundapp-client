@@ -6,7 +6,7 @@ import PricingSection from '../components/PricingSection'
 import Layout from '../components/Layout'
 
 function PricingPage() {
-  const pageHeader = `Pricing | ${process.env.siteTitle}`
+  const pageHeader = `Pricing | Fanfund`
   const [enabled, setEnabled] = useState(false)
 
   return (

@@ -133,6 +133,42 @@ export const onDeletePost = /* GraphQL */ `
     }
   }
 `;
+export const onCreateCandidate = /* GraphQL */ `
+  subscription OnCreateCandidate {
+    onCreateCandidate {
+      id
+      name
+      content
+      email
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateCandidate = /* GraphQL */ `
+  subscription OnUpdateCandidate {
+    onUpdateCandidate {
+      id
+      name
+      content
+      email
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteCandidate = /* GraphQL */ `
+  subscription OnDeleteCandidate {
+    onDeleteCandidate {
+      id
+      name
+      content
+      email
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateArtist = /* GraphQL */ `
   subscription OnCreateArtist {
     onCreateArtist {

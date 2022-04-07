@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 
 
 function FAQPage() {
-  const pageHeader = `FAQ | ${process.env.siteTitle}`
+  const pageHeader = `FAQ | Fanfund`
 
   return (
     <div className="container text-white mx-auto py-6 sm:py-12">

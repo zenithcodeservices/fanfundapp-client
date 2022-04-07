@@ -9,7 +9,7 @@ import SignUpForm from '../components/SignUpForm'
 import Layout from '../components/Layout'
 
 function LoginPage() {
-  const pageHeader = `Login | ${process.env.siteTitle}`
+  const pageHeader = `Login | Fanfund`
   const [isSigningIn, setIsSigningIn] = useState(true)
 
   const toggleIsSigningIn = () => {

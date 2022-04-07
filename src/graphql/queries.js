@@ -91,6 +91,37 @@ export const listPosts = /* GraphQL */ `
     }
   }
 `;
+export const getCandidate = /* GraphQL */ `
+  query GetCandidate($id: ID!) {
+    getCandidate(id: $id) {
+      id
+      name
+      content
+      email
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listCandidates = /* GraphQL */ `
+  query ListCandidates(
+    $filter: ModelCandidateFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listCandidates(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        content
+        email
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
 export const getArtist = /* GraphQL */ `
   query GetArtist($id: ID!) {
     getArtist(id: $id) {

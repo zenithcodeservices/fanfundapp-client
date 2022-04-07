@@ -3,7 +3,7 @@ import PageTitle from '../components/PageTitle'
 import Layout from '../components/Layout'
 
 function AboutPage() {
-  const pageHeader = `About | ${process.env.siteTitle}`
+  const pageHeader = `About | Fanfund`
   return (
     <div className="container text-white mx-auto py-6 sm:py-12">
       <SEO title={pageHeader} />
