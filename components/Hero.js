@@ -26,7 +26,7 @@ function Hero() {
           <p className="font-secondary text-white text-base md:text-lg lg:text-xl">
             Fanfund is an online platform that allows early adopter fans to invest in growing music artists - providing funding for musicians while simultaneously rewarding their fans&apos; astute judgment.
           </p>
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 justify-center">
             <PrimaryButton
               text="Get Started"
               link="/login?signup=1"

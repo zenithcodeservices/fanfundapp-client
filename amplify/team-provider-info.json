@@ -15,7 +15,7 @@
       "function": {
         "S3Trigger65222b40": {
           "deploymentBucketName": "amplify-fanfundappnextjs-dev-01535-deployment",
-          "s3Key": "amplify-builds/S3Trigger65222b40-73446677587963736f4f-build.zip"
+          "s3Key": "amplify-builds/S3Trigger65222b40-6233467555504d383332-build.zip"
         },
         "fanfundappnextjsb0dfb4d5DefineAuthChallenge": {
           "deploymentBucketName": "amplify-fanfundappnextjs-dev-01535-deployment",
@@ -31,9 +31,9 @@
           "s3Key": "amplify-builds/fanfundappnextjsb0dfb4d5VerifyAuthChallengeResponse-567774524b30706d4654-build.zip"
         },
         "contactformuploader": {
-          "sesEmail": "support@fanfundapp.com",
           "deploymentBucketName": "amplify-fanfundappnextjs-dev-01535-deployment",
-          "s3Key": "amplify-builds/contactformuploader-4e65706f79634f725678-build.zip"
+          "s3Key": "amplify-builds/contactformuploader-4e65706f79634f725678-build.zip",
+          "sesEmail": "support@fanfundapp.com"
         }
       },
       "auth": {

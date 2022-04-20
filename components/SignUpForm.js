@@ -1,9 +1,9 @@
 import { useState } from 'react'
-
+import Link from 'next/link'
 import { Auth } from 'aws-amplify';
 
 import Switch from "react-switch";
-
+import styles from "./SignUpForm.module.css"
 
 function SignUpForm() {  
   const [email, setEmail] = useState('')
@@ -62,7 +62,7 @@ function SignUpForm() {
         className="mt-8 space-y-4"
         onSubmit={handleSubmit}
         >
-            <div style={{display:"flex", justifyContent:"center", gap:"1em"}}>
+            <div style={{display:"flex", textAlign:"center", justifyContent:"center", gap:"1em"}}>
               <label className="sr-only">First Name</label>
               <input
                 id="name"
@@ -121,6 +121,8 @@ function SignUpForm() {
             >
               Sign up
           </button>
+          <br></br>
+          <div style={{margin:"0 auto", textAlign:"center"}} ><small className="text-muted">Registration in accordance with <Link style={{color:"gray", textDecoration:'none'}} href="/terms">T&amp;C&apos;s</Link> and <Link style={{color:"gray", textDecoration:'none'}} href="/privacy">Privacy Policy</Link></small></div>
           </div>
         </form>
         ) : (
