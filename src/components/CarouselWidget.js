@@ -59,10 +59,6 @@ const CarouselWidget = () => {
     );
   });
   return (
-    /*--------------------------------------------------------------------------------*/
-    /* Used In Wizard Page                                                            */
-    /*--------------------------------------------------------------------------------*/
-
       <Carousel
         className="primary-carousel position-relative"
         activeIndex={activeIndex}

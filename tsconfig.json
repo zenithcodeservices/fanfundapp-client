@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/layouts/FullLayout.js", "src/components/ProfileCard.js", "pages/portfolio.js", "pages/profile.js"  ],
+  ],
   "exclude": [
     "node_modules"
   ]
