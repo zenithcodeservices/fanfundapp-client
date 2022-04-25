@@ -32,8 +32,9 @@
         },
         "contactformuploader": {
           "deploymentBucketName": "amplify-fanfundappnextjs-dev-01535-deployment",
-          "s3Key": "amplify-builds/contactformuploader-4e65706f79634f725678-build.zip",
-          "sesEmail": "support@fanfundapp.com"
+          "s3Key": "amplify-builds/contactformuploader-43426e58382b47546e77-build.zip",
+          "sesEmail": "support@fanfundapp.com",
+          "sesEmailSource": "no-reply@fanfundapp.com"
         }
       },
       "auth": {

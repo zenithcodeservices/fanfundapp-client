@@ -4,6 +4,10 @@
     {
       "cloudFormationParameterName": "sesEmail",
       "environmentVariableName": "SES_EMAIL"
+    },
+    {
+      "cloudFormationParameterName": "sesEmailSource",
+      "environmentVariableName": "SES_EMAIL_SOURCE"
     }
   ]
 }
