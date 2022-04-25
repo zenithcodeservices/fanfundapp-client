@@ -13,13 +13,11 @@ type Post @model @key(name: "byBlog", fields: ["blogID"]) {
   blog: Blog @connection(fields: ["blogID"])
 }
 
-type Candidate 
-  @model 
-  @auth(rules: [{ allow: public, operations: [create] }]) {
-   id: ID!
-   name: String!
-   content: String!
-   email: AWSEmail!
+type Candidate @model @auth(rules: [{ allow: public, operations: [create] }]) {
+  id: ID!
+  name: String!
+  content: String!
+  email: AWSEmail!
 }
 
 type Artist @model {
