@@ -42,6 +42,7 @@ type Artist @model {
 type Drop @model @key(name: "byArtist", fields: ["artistID"]) {
   id: ID!
   title: String!
+  type: String!
   description: String!
   postcontent: String!
   dropDateTime: String!
