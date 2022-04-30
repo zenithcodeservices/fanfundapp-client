@@ -1,6 +1,7 @@
+import { withSSRContext } from "aws-amplify";
 import {  CardBody } from "reactstrap"
 import ShopListing from "../src/components/apps/ecommerce/ShopListing"
-import NFTCarousel from '../src/components/carousel/NFTCarousel';
+import NFTCarousel from '../src/components/carousel/NFTCarousel'
 
 export default function UpcomingNFTDrops() {
   return (
@@ -19,4 +20,16 @@ export default function UpcomingNFTDrops() {
       </>
   )
 }
+
+// export async function getServerSideProps({ req }) {
+//   const SSR = withSSRContext({ req });
+//   const response = await SSR.API.graphql({ query: listDrops });
+
+//   return {
+//     props: {
+//       posts: response.data.listPosts.items
+//     }
+//   };
+// }
+
 

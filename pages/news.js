@@ -45,7 +45,7 @@ const Cards = () => {
 
   useEffect(() => {
     fetchBlogInfo();
-    
+
   }, []);
 
   const fetchBlogInfo = async () => {
@@ -59,7 +59,7 @@ const Cards = () => {
           console.log(items[0]['createdAt'])
           setBlogData(items)
         })
-        
+
     } catch (err) {
         console.log(err);
     }
@@ -87,58 +87,6 @@ const Cards = () => {
           </Col>
         ))}
       </Row>
-      
-{/*       <Row>
-        <h5 className="mb-3 mt-3">Card Group</h5>
-        <Col>
-          <CardGroup>
-            <Card>
-              <Image alt="Card image cap" src={bg1} />
-              <CardBody>
-                <CardTitle tag="h5">Card title</CardTitle>
-                <CardSubtitle className="mb-2 text-muted" tag="h6">
-                  Card subtitle
-                </CardSubtitle>
-                <CardText>
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </CardText>
-                <Button>Button</Button>
-              </CardBody>
-            </Card>
-            <Card>
-              <Image alt="Card image cap" src={bg2} />
-              <CardBody>
-                <CardTitle tag="h5">Card title</CardTitle>
-                <CardSubtitle className="mb-2 text-muted" tag="h6">
-                  Card subtitle
-                </CardSubtitle>
-                <CardText>
-                  This card has supporting text below as a natural lead-in to
-                  additional content.
-                </CardText>
-                <Button>Button</Button>
-              </CardBody>
-            </Card>
-            <Card>
-              <Image alt="Card image cap" src={bg3} />
-              <CardBody>
-                <CardTitle tag="h5">Card title</CardTitle>
-                <CardSubtitle className="mb-2 text-muted" tag="h6">
-                  Card subtitle
-                </CardSubtitle>
-                <CardText>
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This card has even longer
-                  content than the first to show that equal height action.
-                </CardText>
-                <Button>Button</Button>
-              </CardBody>
-            </Card>
-          </CardGroup>
-        </Col>
-      </Row> */}
     </div>
   );
 };

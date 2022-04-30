@@ -5,9 +5,10 @@ import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import Amplify from 'aws-amplify';
 import awsconfig from '../src/aws-exports';
-Amplify.configure(awsconfig);
 
-
+// TODO: check whether the below is right or not
+// Amplify.configure({...awsconfig, ssr: true});
+Amplify.configure({...awsconfig, ssr: true});
 
 
 function MyApp({ Component, pageProps }) {

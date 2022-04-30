@@ -1,0 +1,388 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateBlog {
+  onCreateBlog {
+    id
+    name
+    posts {
+      items {
+        id
+        title
+        description
+        postcontent
+        blogID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateBlog {
+  onUpdateBlog {
+    id
+    name
+    posts {
+      items {
+        id
+        title
+        description
+        postcontent
+        blogID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteBlog {
+  onDeleteBlog {
+    id
+    name
+    posts {
+      items {
+        id
+        title
+        description
+        postcontent
+        blogID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreatePost {
+  onCreatePost {
+    id
+    title
+    description
+    postcontent
+    blogID
+    blog {
+      id
+      name
+      posts {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdatePost {
+  onUpdatePost {
+    id
+    title
+    description
+    postcontent
+    blogID
+    blog {
+      id
+      name
+      posts {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeletePost {
+  onDeletePost {
+    id
+    title
+    description
+    postcontent
+    blogID
+    blog {
+      id
+      name
+      posts {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateCandidate {
+  onCreateCandidate {
+    id
+    name
+    content
+    email
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateCandidate {
+  onUpdateCandidate {
+    id
+    name
+    content
+    email
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteCandidate {
+  onDeleteCandidate {
+    id
+    name
+    content
+    email
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateArtist {
+  onCreateArtist {
+    id
+    name
+    posts {
+      items {
+        id
+        title
+        description
+        postcontent
+        dropDateTime
+        streamingPercentage
+        isSoldOut
+        artistID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateArtist {
+  onUpdateArtist {
+    id
+    name
+    posts {
+      items {
+        id
+        title
+        description
+        postcontent
+        dropDateTime
+        streamingPercentage
+        isSoldOut
+        artistID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteArtist {
+  onDeleteArtist {
+    id
+    name
+    posts {
+      items {
+        id
+        title
+        description
+        postcontent
+        dropDateTime
+        streamingPercentage
+        isSoldOut
+        artistID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateDrop {
+  onCreateDrop {
+    id
+    title
+    description
+    postcontent
+    dropDateTime
+    streamingPercentage
+    isSoldOut
+    artistID
+    artist {
+      id
+      name
+      posts {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateDrop {
+  onUpdateDrop {
+    id
+    title
+    description
+    postcontent
+    dropDateTime
+    streamingPercentage
+    isSoldOut
+    artistID
+    artist {
+      id
+      name
+      posts {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteDrop {
+  onDeleteDrop {
+    id
+    title
+    description
+    postcontent
+    dropDateTime
+    streamingPercentage
+    isSoldOut
+    artistID
+    artist {
+      id
+      name
+      posts {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateTier {
+  onCreateTier {
+    id
+    title
+    perkDescription
+    collectorAddresses
+    priceUSD
+    isSoldOut
+    percentageOwnership
+    numberOfTokens
+    dropID
+    drop {
+      id
+      title
+      description
+      postcontent
+      dropDateTime
+      streamingPercentage
+      isSoldOut
+      artistID
+      artist {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateTier {
+  onUpdateTier {
+    id
+    title
+    perkDescription
+    collectorAddresses
+    priceUSD
+    isSoldOut
+    percentageOwnership
+    numberOfTokens
+    dropID
+    drop {
+      id
+      title
+      description
+      postcontent
+      dropDateTime
+      streamingPercentage
+      isSoldOut
+      artistID
+      artist {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteTier {
+  onDeleteTier {
+    id
+    title
+    perkDescription
+    collectorAddresses
+    priceUSD
+    isSoldOut
+    percentageOwnership
+    numberOfTokens
+    dropID
+    drop {
+      id
+      title
+      description
+      postcontent
+      dropDateTime
+      streamingPercentage
+      isSoldOut
+      artistID
+      artist {
+        id
+        name
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
