@@ -1,4 +1,3 @@
-import { withSSRContext } from "aws-amplify";
 import {  CardBody } from "reactstrap"
 import ShopListing from "../src/components/apps/ecommerce/ShopListing"
 import NFTCarousel from '../src/components/carousel/NFTCarousel'

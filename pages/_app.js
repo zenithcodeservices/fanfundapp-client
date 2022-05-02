@@ -5,6 +5,7 @@ import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import Amplify from 'aws-amplify';
 import awsconfig from '../src/aws-exports';
+import {ChakraProvider} from "@chakra-ui/react"
 
 // TODO: check whether the below is right or not
 // Amplify.configure({...awsconfig, ssr: true});
@@ -17,6 +18,8 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+
+<ChakraProvider>
       <Head>
         <title>Fanfund </title>
         <meta
@@ -29,7 +32,9 @@ function MyApp({ Component, pageProps }) {
         <Layout>
           <Component {...pageProps} />
         </Layout>
+        </ChakraProvider>
     </>
+
   );
 }
 
