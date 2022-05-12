@@ -1,27 +1,19 @@
-import { Card, CardBody } from "reactstrap"
-import TwoColumn from "../src/components/twoColumn/TwoColumn"
+import {  CardBody } from "reactstrap"
 import ShopListing from "../src/components/apps/ecommerce/ShopListing"
-import EcoSidebar from "../src/components/apps/ecommerce/EcoSidebar"
-import styles from '../src/assets/css/nft-drops.module.css'
-import CarouselWidget from "../src/components/CarouselWidget"
+import NFTCarousel from '../src/components/carousel/NFTCarousel';
 
 export default function UpcomingNFTDrops() {
   return (
-      
+
       <>
-      
+
       <span style={{ margin: "1em" }} className="font-semibold text-3xl sm:text-4xl md:text-3xl text-gray ">
         Featured Drops
       </span>
-      <div style={{ margin: "1em" }}></div>
 
-
-      <div style={{position:"relative", zIndex:"0"}}>
-        <CarouselWidget style={{ width: "100vw", minHeight: "60vh"}} />
-      </div>
+        <NFTCarousel />
 
       <CardBody>
-
       <ShopListing />
       </CardBody>
       </>
