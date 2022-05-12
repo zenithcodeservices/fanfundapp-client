@@ -26,6 +26,9 @@
     },
     "sesEmail": {
       "Type": "String"
+    },
+    "sesEmailSource": {
+      "Type": "String"
     }
   },
   "Conditions": {
@@ -83,6 +86,9 @@
             },
             "SES_EMAIL": {
               "Ref": "sesEmail"
+            },
+            "SES_EMAIL_SOURCE": {
+              "Ref": "sesEmailSource"
             }
           }
         },
@@ -177,10 +183,17 @@
             },
             {
               "Action": [
-                "ses:SendEmail"
+                "ses:*",
+                "ses:SendEmail",
+                "ses:SendTemplatedEmail"
               ],
               "Effect": "Allow",
-              "Resource": "arn:aws:ses:us-east-1:559545256661:identity/support@fanfundapp.com"
+              "Resource": [
+                "arn:aws:ses:us-east-1:559545256661:identity/*",
+                "arn:aws:ses:us-east-1:559545256661:identity/support@fanfundapp.com",
+                "arn:aws:ses:us-east-1:559545256661:identity/no-reply@fanfundapp.com",
+                "arn:aws:ses:us-east-1:559545256661:identity/fanfundapp.com"
+              ]
             }
           ]
         }

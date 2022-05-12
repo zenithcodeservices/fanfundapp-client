@@ -16,12 +16,17 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "src/layouts/FullLayout.js",
+    "src/components/ProfileCard.js",
+    "pages/portfolio.js",
+    "pages/profile.js"
   ],
   "exclude": [
     "node_modules"

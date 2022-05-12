@@ -28,9 +28,21 @@ type Artist @model {
   posts: [Drop] @connection(keyName: "byArtist", fields: ["id"])
 }
 
+
+
+""" type Artist @model {
+  id: ID!
+  name: String!
+  joinedOn: String!
+  bio: String!
+  posts: [Drop] @connection(keyName: "byArtist", fields: ["id"])
+}
+ """
+
 type Drop @model @key(name: "byArtist", fields: ["artistID"]) {
   id: ID!
   title: String!
+  type: String!
   description: String!
   postcontent: String!
   dropDateTime: String!

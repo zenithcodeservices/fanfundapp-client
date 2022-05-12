@@ -32,6 +32,18 @@ const SECOND_COL = [
   },
 ]
 
+const THIRD_COL = [
+  {
+    label: 'Terms & Conditions',
+    link: '/terms'
+  },
+  {
+    label: 'Privacy Policy',
+    link: '/privacy'
+  },
+
+]
+
 function Footer() {
   return (
     <footer className="bg-palette-gray font-primary text-white-900 pt-10 pb-4">
@@ -62,6 +74,11 @@ function Footer() {
                 header="Resources"
                 items={SECOND_COL}
               />
+              <FooterLinkColumn
+                header="Products"
+                items={THIRD_COL}
+              />
+
             </div>
           </div>
         </div>

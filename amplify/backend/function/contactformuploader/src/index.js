@@ -23,6 +23,17 @@ exports.handler = async (event) => {
             },
           })
           .promise()
+
+      await ses
+          .sendTemplatedEmail({
+            Destination: {
+              ToAddresses: [`${candidateEmail}`],
+            },
+            Source: process.env.SES_EMAIL_SOURCE,
+            Template: "hello_world_template2",
+            TemplateData: '{ \"REPLACEMENT_TAG_NAME\":\"REPLACEMENT_VALUE\" }', /* required */
+          })
+          .promise()
     }
   }
   return { status: 'done' }

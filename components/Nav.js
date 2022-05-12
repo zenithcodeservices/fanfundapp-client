@@ -69,7 +69,7 @@ function Nav(user) {
                       <span>Fanfund</span>
                     </span>
                     <Badge style={{fontWeight:"500", marginLeft:"1em"}} color="secondary" pill>
-                      Alpha
+                      Pre-Alpha
                     </Badge>
 
                   </p>
@@ -131,7 +131,7 @@ function Nav(user) {
                                 Logout
                               </p>
                             </Link>
-                            <Link href="/dashboard">
+                            <Link href="/nft-drops">
                                 <p
                                   style={{ textDecoration: 'none', cursor: 'pointer' }}
                                   className={classNames(

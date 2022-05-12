@@ -132,7 +132,7 @@ const Header = ({showMobmenu }) => {
 
         <div className="d-flex align-items-center">
         <Badge style={{fontWeight:"500", marginRight:"1em"}} color="secondary" pill>
-              Alpha
+        Pre-Alpha
           </Badge>
           <Dropdown isOpen={dropdownOpen2} toggle={toggle2}>
             <DropdownToggle className={styles["wallet-toggle"]} color="gray">
