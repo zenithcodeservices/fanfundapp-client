@@ -46,13 +46,13 @@ const Timeline = () => {
   useEffect(() => {
     onPageRendered();
     fetchUserInfo();
-    
+
   }, []);
-  
+
   const onPageRendered = async () => {
     getProfilePicture();
   };
-  
+
   const fetchUserInfo = async () => {
     await Auth.currentAuthenticatedUser().then(user => {
       setUser(user)
@@ -67,8 +67,8 @@ const Timeline = () => {
       }
     })
   }
-  
-  
+
+
   const getProfilePicture = async () => {
     console.log(`${UserContext.username}-avatar.png`)
     await Storage.get(`${UserContext.username}-avatar.png`)
@@ -108,7 +108,7 @@ const Timeline = () => {
         })
         console.log(result)
         setSuccessDialog("Update Successful")
-        
+
       }
       catch (err) {
         console.log(error['message'])
@@ -118,7 +118,7 @@ const Timeline = () => {
 
     })
   }
-  
+
 
   const [isLoading , setIsLoading] = useState(false);
   const [user, setUser] = useState(null);
@@ -193,6 +193,20 @@ const Timeline = () => {
               Setting
             </NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink
+              className={
+                activeTab === "4"
+                  ? "active bg-transparent"
+                  : "cursor-pointer text-muted"
+              }
+              onClick={() => {
+                toggle("4");
+              }}
+            >
+              Wallet Settings
+            </NavLink>
+          </NavItem>
         </Nav>
         <TabContent activeTab={activeTab}>
           <TabPane tabId="2">
@@ -200,7 +214,7 @@ const Timeline = () => {
               <Col sm="12">
                 <div className="p-4">
                   <Row>
-  
+
                     <Col md="4" xs="6" className="border-end">
                       <strong>Email</strong>
                       <br />

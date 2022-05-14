@@ -40,8 +40,8 @@ export default function NFTCarousel() {
       swipeable={true}
       swipeScrollTolerance={5}
     >
-      {items.map((item) => (
-        <CarouselCard />
+      {items.map((item, index) => (
+        <CarouselCard key={index} />
       ))}
     </Carousel>
   );
