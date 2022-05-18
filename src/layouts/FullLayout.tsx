@@ -12,6 +12,8 @@ import { providers, Contract, utils, BigNumber } from 'ethers'
 import WalletLink from 'walletlink'
 import Web3Modal from 'web3modal'
 import { ethers } from "ethers"
+import { MoralisProvider } from "react-moralis";
+
 
 
 import type StateType from '../types/StateType'
@@ -346,6 +348,10 @@ const FullLayout = ({ children }) => {
 
   return (
     <>
+    <MoralisProvider
+      appId="1whuVZukehRkJZyRTZGVTY6Iq6WvWBzJpDqQvsLf"
+      serverUrl="https://ii7lo3bm8fed.usemoralis.com:2053/server"
+    >
     <UserContext.Provider value={userContext}>
     {user !== null ? (
     <main>
@@ -402,6 +408,7 @@ const FullLayout = ({ children }) => {
       </main>
     )}
     </UserContext.Provider>
+    </MoralisProvider>
     </>
   );
 };

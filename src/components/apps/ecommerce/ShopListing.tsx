@@ -65,8 +65,8 @@ const ShopListing = (data: any) => {
             </a>
           </Link>
           <div className="pt-2">
-            <small>{uri.description}</small>
-            <h5 className="mb-3">{uri.createdAt}</h5>
+            <small>{uri.title}</small>
+            <h5 className="mb-3">{uri.streamingPercentage}% royalties to holders</h5>
             <div className="d-flex align-items-center">
               <h5>{uri.isSoldOut}</h5>
             </div>
