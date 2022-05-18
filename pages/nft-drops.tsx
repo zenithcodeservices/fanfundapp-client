@@ -14,7 +14,6 @@ Storage.configure({ track: true, level: "public" });
 export default function UpcomingNFTDrops() {
 
 
-  const [dropData, setDropData] = useState(undefined);
   const [image, setImage] = useState(undefined);
 
   const getFeaturedPics = async () => {
@@ -29,6 +28,10 @@ export default function UpcomingNFTDrops() {
     })
     .catch(err => console.log(err));
   };
+
+
+  const [dropData, setDropData] = useState(undefined);
+
 
   useEffect(() => {
     getFeaturedPics()

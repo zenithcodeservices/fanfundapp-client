@@ -1,6 +1,7 @@
 import styles from '../../src/assets/css/nft-detail.module.css'
+import { API } from "@aws-amplify/api";
 
-import React from "react"
+import React, { useEffect, useState } from "react"
 import {
   Row,
   Col,
@@ -21,6 +22,7 @@ import img1 from "../../src/assets/images/products/s1.jpg"
 import img2 from "../../src/assets/images/products/s2.jpg"
 import img3 from "../../src/assets/images/products/s3.jpg"
 import Image from "next/image"
+import router, { useRouter } from 'next/router';
 
 const items = [
   {
@@ -40,7 +42,125 @@ const items = [
   },
 ]
 
-export default function NFTDetail() {
+export default function NFTDetail(data: any) {
+
+  const [dropData, setDropData] = useState(undefined);
+  const [tierData, setTierData] = useState(undefined);
+  const [dropID, setDropID] = useState(undefined);
+
+  const router = useRouter();
+
+
+
+
+  const listDropsQuery = /* GraphQL */ `
+  query getDropByID ($dropID: ID!) {
+  getDrop(id: $dropID) {
+    artistID
+    createdAt
+    description
+    dropDateTime
+    id
+    isSoldOut
+    postcontent
+    streamingPercentage
+    title
+    updatedAt
+    artist {
+      name
+    }
+  }
+}
+  `
+
+const listTiersQuery = /* GraphQL */ `
+query listTiersForTitleTrackDrop  ($dropID: ID!) {
+  listTiers(filter: {dropID: {eq: $dropID}}) {
+    items {
+      id
+      isSoldOut
+      numberOfTokens
+      percentageOwnership
+      perkDescription
+      priceUSD
+      title
+      updatedAt
+      drop {
+        updatedAt
+        title
+        streamingPercentage
+        postcontent
+        isSoldOut
+        id
+        dropDateTime
+        description
+        createdAt
+        artist {
+          id
+          name
+        }
+      }
+    }
+  }
+}
+`
+
+
+
+  const fetchDropInfo = async () => {
+    try {
+        await API.graphql({
+            query: listDropsQuery,
+            variables: {
+              dropID: dropID,
+            },
+        }).then(result => {
+          const item = result['data']['getDrop']
+          setDropData(item)
+          console.log(dropData)
+          
+        })
+        
+    } catch (err) {
+        console.log(err);
+    }
+  }
+
+  const fetchTierInfo = async () => {
+    try {
+        await API.graphql({
+            query: listTiersQuery,
+            variables: {
+              dropID: dropID,
+            },
+        }).then(result => {
+          const item = result['data']['listTiers']['items']
+          setTierData(item)
+          console.log("tierData")
+          console.log(tierData)
+        })
+        
+    } catch (err) {
+        console.log(err);
+    }
+  }
+
+    
+  useEffect(() => {
+    if(!router.isReady) return;
+    
+    const dropIDFromURL: string = router.query.id.toString()
+    setDropID(dropIDFromURL)
+
+  }, [router.isReady, router.query])
+
+  useEffect(() => {
+    fetchDropInfo();
+    fetchTierInfo();
+
+  }, [dropID])
+
+
   const [activeIndex, setActiveIndex] = React.useState(0)
   const [animating, setAnimating] = React.useState(false)
 
@@ -96,10 +216,10 @@ export default function NFTDetail() {
                   </Carousel>
                 </Col>
                 <Col sm="4" md="6" lg="6">
-                  <Badge color="success">&#123;Single|EP&#125;</Badge>
-                  <h3 className="mt-2 mb-3">&#123;title&#125;</h3>
+                  <Badge color="success">{dropData!== undefined ? dropData['artist']['name']:undefined}</Badge>
+                  <h3 className="mt-2 mb-3">{dropData!== undefined ? dropData['title']:undefined}</h3>
                   <p className="text-muted py-3">
-                    &#123;description&#125;
+                  {dropData!== undefined ? dropData['description']:undefined}
                   </p>
                   {/* <h2>$546.00</h2> */}
                   <br />
@@ -156,11 +276,11 @@ export default function NFTDetail() {
                       <Image alt="Card image cap" src="/images/bg1.jpg"  width={200} height={200} layout="responsive"></Image>
                     </div>
                     <div style={{position: "relative", zIndex:"+1",top:"-4%", left:"80px"}}>
-                      <Badge color="success">&#123;B Tier&#125;</Badge>
+                      <Badge color="success">{tierData !== undefined ? tierData[0]['title']:undefined}</Badge>
                     </div>
-                    <p>&#123;PriceUSD&#125;</p>
+                    <p>{tierData !== undefined ? tierData[0]['priceUSD']:undefined} USD</p>
                     <DropdownItem divider />
-                    <p>&#123;Perk Description&#125;</p>
+                    <p>{tierData !== undefined ? tierData[0]['perkDescription'][0]:undefined}</p>
                     <button
                         type="submit"
                         className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-semibold rounded-lg text-gray bg-palette-primary hover:bg-palette-dark focus:outline-none focus:ring-1 focus:ring-palette-primary focus:ring-offset-2"
@@ -168,7 +288,7 @@ export default function NFTDetail() {
                         Buy Now
                     </button>
                   </div>
-                  <p>&#123;Remaining Tokens&#125;</p>
+                  <p>{tierData !== undefined ? tierData[0]['numberOfTokens']:undefined} Token Available</p>
                 </div>
                 <div style={{display:"flex", flexDirection:"column"}}>
                   <div style={{borderRadius:"5px", border:"2px solid gray"}}>
@@ -176,11 +296,11 @@ export default function NFTDetail() {
                       <Image alt="Card image cap" src="/images/bg1.jpg"  width={200} height={200} layout="responsive"></Image>
                     </div>
                     <div style={{position: "relative", zIndex:"+1",top:"-4%", left:"80px"}}>
-                      <Badge color="success">&#123;A Tier&#125;</Badge>
+                      <Badge color="success">{tierData !== undefined ? tierData[1]['title']:undefined}</Badge>
                     </div>
-                    <p>&#123;PriceUSD&#125;</p>
+                    <p>{tierData !== undefined ? tierData[1]['priceUSD']:undefined} USD</p>
                     <DropdownItem divider />
-                    <p>&#123;Perk Description&#125;</p>
+                    <p>{tierData !== undefined ? tierData[1]['perkDescription'][0]:undefined}</p>
                     <button
                         type="submit"
                         className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-semibold rounded-lg text-gray bg-palette-primary hover:bg-palette-dark focus:outline-none focus:ring-1 focus:ring-palette-primary focus:ring-offset-2"
@@ -188,7 +308,7 @@ export default function NFTDetail() {
                         Buy Now
                     </button>
                   </div>
-                  <p>&#123;Remaining Tokens&#125;</p>
+                  <p>{tierData !== undefined ? tierData[1]['numberOfTokens']:undefined} Token Available</p>
                 </div>
                 <div style={{display:"flex", flexDirection:"column"}}>
                   <div style={{borderRadius:"5px", border:"2px solid gray"}}>
@@ -196,11 +316,11 @@ export default function NFTDetail() {
                       <Image alt="Card image cap" src="/images/bg1.jpg"  width={200} height={200} layout="responsive"></Image>
                     </div>
                     <div style={{position: "relative", zIndex:"+1",top:"-4%", left:"80px"}}>
-                      <Badge color="success">&#123;S Tier&#125;</Badge>
+                      <Badge color="success">{tierData !== undefined ? tierData[2]['title']:undefined}</Badge>
                     </div>
-                    <p>&#123;PriceUSD&#125;</p>
+                    <p>{tierData !== undefined ? tierData[2]['priceUSD']:undefined} USD</p>
                     <DropdownItem divider />
-                    <p>&#123;Perk Description&#125;</p>
+                    <p>{tierData !== undefined ? tierData[2]['perkDescription'][0]:undefined}</p>
                     <button
                         type="submit"
                         className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-semibold rounded-lg text-gray bg-palette-primary hover:bg-palette-dark focus:outline-none focus:ring-1 focus:ring-palette-primary focus:ring-offset-2"
@@ -208,7 +328,7 @@ export default function NFTDetail() {
                         Buy Now
                     </button>
                   </div>
-                  <p>&#123;Remaining Tokens&#125;</p>
+                  <p>{tierData !== undefined ? tierData[2]['numberOfTokens']:undefined} Token Available</p>
                 </div>
               </div>
             </CardBody>

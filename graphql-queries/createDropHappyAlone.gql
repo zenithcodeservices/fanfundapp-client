@@ -1,0 +1,82 @@
+mutation CreateDropHappyAlone {
+	createDrop(input: {
+		artistID: "aaf82423-b785-43d8-b2fa-e6ce6c0b10b4",
+		description: "Fanfund's Pilot Drop - HappyAlone share ownership on their new single \"TitleTrack\". Token holders will receive a proportion of streaming revenue as well as unique perks such as merchandise and concert tickets.",
+		dropDateTime: "28/07/2022T1400",
+		isSoldOut: false,
+		postcontent: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+		streamingPercentage: 80,
+		title: "TitleTrack"
+	}, condition: {
+		artistID: {
+			eq: "aaf82423-b785-43d8-b2fa-e6ce6c0b10b4"
+		}
+	}) {
+		artistID
+	}
+}
+
+//8d169439-8d9c-41aa-923b-95f6dafa435a
+//724addaa-9040-4515-b660-0490b6d7833b
+
+mutation deleteDrop {
+  deleteDrop(input: {id: "8d169439-8d9c-41aa-923b-95f6dafa435a"}) {
+    id
+  }
+}
+
+mutation deleteDrop {
+  deleteDrop(input: {id: "724addaa-9040-4515-b660-0490b6d7833b"}) {
+    id
+  }
+}
+
+
+query getDropByID {
+  getDrop(id: "8a2bc444-c9cf-45f8-98dc-0f500e465684") {
+    artistID
+    createdAt
+    description
+    dropDateTime
+    id
+    isSoldOut
+    postcontent
+    streamingPercentage
+    title
+    updatedAt
+    artist {
+      name
+    }
+  }
+}
+
+
+query listTiersForTitleTrackDrop {
+  listTiers(filter: {dropID: {eq: "8a2bc444-c9cf-45f8-98dc-0f500e465684"}}) {
+    items {
+      id
+      isSoldOut
+      numberOfTokens
+      percentageOwnership
+      perkDescription
+      priceUSD
+      title
+      updatedAt
+      drop {
+        updatedAt
+        title
+        streamingPercentage
+        postcontent
+        isSoldOut
+        id
+        dropDateTime
+        description
+        createdAt
+        artist {
+          id
+          name
+        }
+      }
+    }
+  }
+}

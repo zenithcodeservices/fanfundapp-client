@@ -46,7 +46,16 @@ const ShopListing = (data: any) => {
     <div className="p-4">
     <Row>
         <Col xs="6" sm="6" md="4" lg="4" key={uri.artistID} className="mb-4">
-          <Link href="/NFTs/nft-detail">
+        <Link
+          href={{
+            pathname: "/NFTs/nft-detail?drop=[id]",
+            query: {
+              id: uri['id'],
+            }
+          }}
+          // as={`/NFTs/nft-detail?id=${uri['id'].substr(uri['id'].length - 5)}`}
+          as={`/NFTs/nft-detail?id=${uri['id']}`}
+        >
             <a>
               <Image
                 src={img1}
