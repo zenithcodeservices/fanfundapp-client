@@ -108,7 +108,7 @@ export default function UpcomingNFTDrops() {
       <div style={{backgroundColor:"#D69859", height:"500px"}}>
         <Image src={image} width={700} height={300} layout="responsive" />
         <p style={{fontSize:"2em", color:"white", fontWeight:"2em", lineHeight:"1em", marginLeft:"0.5em"}}>HappyAlone</p>
-        <p style={{fontSize:"2em", color:"white", fontWeight:"2em", lineHeight:"1em", marginLeft:"0.5em"}}>Co-Own the New Single "Titletrack"</p>
+        <p style={{fontSize:"2em", color:"white", fontWeight:"2em", lineHeight:"1em", marginLeft:"0.5em"}}>Co-Own the New Single &apos;Titletrack&apos;</p>
         <p style={{fontSize:"2em", color:"white", fontWeight:"2em", lineHeight:"1em", marginLeft:"0.5em"}}>29th July 14:00 GMT</p>
       </div>
       )}

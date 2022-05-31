@@ -190,7 +190,21 @@ const Timeline = () => {
                 toggle("3");
               }}
             >
-              Setting
+              General Settings
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={
+                activeTab === "4"
+                  ? "active bg-transparent"
+                  : "cursor-pointer text-muted"
+              }
+              onClick={() => {
+                toggle("4");
+              }}
+            >
+              Wallet Settings
             </NavLink>
           </NavItem>
         </Nav>
@@ -274,6 +288,44 @@ const Timeline = () => {
                       </Input>
                     </FormGroup>
  */}                    <Button type="submit" color="primary">Update Profile</Button>
+                  </Form>
+                  <br></br>
+                  {
+                    successDialog === '' ?
+                      null
+                      :
+                      <div className="bg-green-50 p-2 rounded-lg border border-green-500 text-green-600 font-semibold">
+                        {successDialog}
+                      </div>
+                  }
+
+                  {
+                    errorWarning === '' ?
+                      null
+                      :
+                      <div className="bg-red-50 p-2 rounded-lg border border-red-500 text-red-600 font-semibold">
+                        Error! {errorWarning}
+                      </div>
+                  }
+                </div>
+              </Col>
+            </Row>
+          </TabPane>
+          <TabPane tabId="4">
+            <Row>
+              <Col sm="12">
+                <div className="p-4">
+                  <Form onSubmit={updateProfile}>
+                    <FormGroup>
+                      <Label>Primary Wallet</Label>
+                      <Input onChange={(e) => setFormFirstName(e.target.value)} type="text" placeholder={firstName} />
+                    </FormGroup>
+                    <FormGroup>
+                      <Label>Secondary Wallet</Label>
+                      <Input onChange={(e) => setFormLastName(e.target.value)} type="text" placeholder={lastName} />
+                    </FormGroup>
+
+                    <Button type="submit" color="primary">Update Wallet Settings</Button>
                   </Form>
                   <br></br>
                   {

@@ -68,7 +68,7 @@ function ContactPage() {
       {successDialog && (
           <div className="w-full px-4 py-12 mx-auto max-w-2xl font-secondary">
             <div  className="bg-green-50 p-2 rounded-lg-md border border-green-500 text-green-600 font-semibold">
-              Email received, you'll receive confirmation soon.
+              Email received, you&apos;ll receive confirmation soon.
             </div>
           </div>
         )}

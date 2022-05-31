@@ -109,12 +109,12 @@ query listTiersForTitleTrackDrop  ($dropID: ID!) {
 
   const fetchDropInfo = async () => {
     try {
-        await API.graphql({
+        await (API.graphql({
             query: listDropsQuery,
             variables: {
               dropID: dropID,
             },
-        }).then(result => {
+        }) as any).then(result => {
           const item = result['data']['getDrop']
           setDropData(item)
           console.log(dropData)
@@ -269,8 +269,8 @@ query listTiersForTitleTrackDrop  ($dropID: ID!) {
         <Col>
           <Card>
             <CardBody>
-              <div style={{display:"flex", flexDirection:"row", justifyContent:"space-evenly"}}>
-                <div style={{display:"flex", flexDirection:"column"}}>
+              <div style={{display:"flex", flexDirection:"row", flexWrap:"wrap", justifyContent:"space-evenly"}}>
+                <div style={{display:"flex", minHeight:"400px", minWidth:"250px", maxWidth:"250px", flexDirection:"column"}}>
                   <div style={{borderRadius:"5px", border:"2px solid gray"}}>
                     <div style={{width:"230px"}}>
                       <Image alt="Card image cap" src="/images/bg1.jpg"  width={200} height={200} layout="responsive"></Image>
@@ -290,7 +290,7 @@ query listTiersForTitleTrackDrop  ($dropID: ID!) {
                   </div>
                   <p>{tierData !== undefined ? tierData[0]['numberOfTokens']:undefined} Token Available</p>
                 </div>
-                <div style={{display:"flex", flexDirection:"column"}}>
+                <div style={{display:"flex", minHeight:"400px", minWidth:"250px", maxWidth:"250px", flexDirection:"column"}}>
                   <div style={{borderRadius:"5px", border:"2px solid gray"}}>
                     <div style={{width:"230px"}}>
                       <Image alt="Card image cap" src="/images/bg1.jpg"  width={200} height={200} layout="responsive"></Image>
@@ -310,7 +310,7 @@ query listTiersForTitleTrackDrop  ($dropID: ID!) {
                   </div>
                   <p>{tierData !== undefined ? tierData[1]['numberOfTokens']:undefined} Token Available</p>
                 </div>
-                <div style={{display:"flex", flexDirection:"column"}}>
+                <div style={{display:"flex", minHeight:"400px", minWidth:"250px", maxWidth:"250px", flexDirection:"column"}}>
                   <div style={{borderRadius:"5px", border:"2px solid gray"}}>
                     <div style={{width:"230px"}}>
                       <Image alt="Card image cap" src="/images/bg1.jpg"  width={200} height={200} layout="responsive"></Image>

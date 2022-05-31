@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 
 
 function SignInForm() {
+
   const [email, setEmail] = useState('')
   const [resetEmail, setResetEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -77,6 +78,7 @@ function SignInForm() {
       setErrorWarning('')
       UserContext.username = user.username
       router.push('/nft-drops', undefined, { shallow: true })
+
       //UserContext.attributes['email'] = email
 
     } catch (error) {
