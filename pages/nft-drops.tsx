@@ -116,8 +116,8 @@ export default function UpcomingNFTDrops() {
         {/* <NFTCarousel /> */}
 
         {dropData !== undefined ? dropData.map((uri: IDropData, index: number) => (
-          <CardBody>
-          <ShopListing uri={uri} key={index} />
+          <CardBody key={index}>
+          <ShopListing uri={uri} />
           </CardBody>
         )):(<></>)}
       
