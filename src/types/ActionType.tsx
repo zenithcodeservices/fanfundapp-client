@@ -9,6 +9,13 @@ type ActionType =
     chainId?: StateType['chainId']
   }
   | {
+    type: 'SET_INFORMATION'
+
+    userNFTs?: StateType['userNFTs']
+    uriList?: StateType['uriList']
+    connected?: StateType['connected']
+  }
+  | {
     type: 'SET_ADDRESS'
     address?: StateType['address']
   }

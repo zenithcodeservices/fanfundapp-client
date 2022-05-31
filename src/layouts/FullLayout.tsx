@@ -25,6 +25,7 @@ import UserContext from "../../lib/userContext";
 const INFURA_ID = "2c0bd8cad65a82de37d96ca2f70065a3"
 
 import Amplify, { Storage } from "aws-amplify";
+import { fetchJson } from "@ethersproject/web";
 Storage.configure({ track: true, level: "private" });
 
 
@@ -75,9 +76,9 @@ const initialState: StateType = {
   web3Provider: null,
   address: null,
   chainId: null,
-  // userNFTs: null,
   // listedUriList: null,
-  // uriList: null,
+  userNFTs: null,
+  uriList: null,
   // championsFarmItems: null,
   connected: false,
   username: null
@@ -103,6 +104,14 @@ function reducer(state: StateType, action: ActionType): StateType {
       return {
         ...state,
         chainId: action.chainId,
+      }
+    case 'SET_INFORMATION':
+      return {
+        ...state,
+
+        userNFTs: action.userNFTs,
+        uriList: action.uriList,
+        connected: action.connected,
       }
     case 'RESET_WEB3_PROVIDER':
       return initialState
@@ -131,6 +140,8 @@ const FullLayout = ({ children }) => {
       family_name: null,
     },
     img: null,
+    uriList: [],
+    userNFTs: []
   }
 
   const [state, dispatch] = useReducer(reducer, initialState)
@@ -147,6 +158,8 @@ const FullLayout = ({ children }) => {
     address,
     chainId,
     connected,
+    userNFTs,
+    uriList
   } = state
 
 
@@ -225,6 +238,34 @@ const FullLayout = ({ children }) => {
     if (network.chainId == 56) {
       const nftContract = new Contract(contracts.nft.addy, nftABI, web3Provider)
       
+      const userNFTs = (await nftContract.balanceOf(address)).toNumber()
+      const indexes = []
+      const uri = []
+      const uriList = []
+
+      console.log("userNFTs")
+      console.log(userNFTs)
+
+      for (let i = 0; i < userNFTs; i++) {
+        indexes[i] = (await nftContract.tokenOfOwnerByIndex(address, i)).toNumber()
+        uri[i] = (await nftContract.tokenURI(indexes[i]))
+        const imageLink = (uri[i].split("://"))[1]
+        const url = "https://blockapescissors.mypinata.cloud/ipfs/".concat(imageLink)
+      
+        uriList[i] = await fetchJson(url)
+      }
+
+      console.log("uriList")
+      console.log(uriList)
+
+      dispatch({
+        type: 'SET_INFORMATION',
+        connected: true,
+        userNFTs,
+        uriList,
+      })
+
+
     }
   }, [])
 
@@ -339,6 +380,9 @@ const FullLayout = ({ children }) => {
   userContext.connect = connect
   userContext.disconnect = disconnect
   userContext.connected = connected
+
+  userContext.userNFTs = userNFTs
+  userContext.uriList = uriList
 
 
   const showMobilemenu = () => {

@@ -48,7 +48,7 @@ function FAQPage() {
   </ul>
   <h1>Return and Refund Policy</h1>
   <p>Thanks for shopping at Fanfund. We appreciate the fact that you like to buy the stuff we build. We also want to make sure you have a rewarding experience while you&apos;re exploring, evaluating, and purchasing our products.</p>
-  <p>As with any shopping experience, there are terms and conditions that apply to transactions at Fanfund. We&apos;ll be as brief as our attorneys will allow. The main thing to remember is that by placing an order or making a purchase at Fanfund, you agree to the terms along with Fanfund&apos;s Privacy Policy.</p>
+  <p>As with any shopping experience, there are terms and conditions that apply to transactions at Fanfund. We&apos;ll be as brief as our attorneys will allow. The main thing to remember is that by placing an order or making a purchase at Fanfund, you agree to the terms along with Fanfund&apos;s Privacy Policy.</p>
   <p>If, for any reason, You are not completely satisfied with any good or service that we provide, don&apos;t hesitate to contact us and we will discuss any of the issues you are going through with our product.</p>
   
   <h1>Your Suggestions</h1>

@@ -5,7 +5,7 @@ import ShopeItems from "./Shopitems";
 import img1 from "../../../assets/images/bg/bg1.jpg";
 
 
-import type IDropData from '../../../../pages/types/IDropData'
+import type IDropData from '../../../types/IDropData'
 
 const ShopListing = (data: any) => {
 

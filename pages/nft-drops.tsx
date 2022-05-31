@@ -10,7 +10,7 @@ import Image from "next/image"
 
 import  { Storage } from "aws-amplify";
 import { useEffect, useState } from "react";
-import IDropData from "./types/IDropData";
+import IDropData from "../src/types/IDropData";
 
 Storage.configure({ track: true, level: "public" });
 

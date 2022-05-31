@@ -13,7 +13,7 @@
     background-color: #fff;
     color: black;
     font-weight: 500;
-    height: 80vh;
+    height: 50vh;
 }
 
 .dialog-box-innner {
@@ -40,3 +40,75 @@
     flex-direction: column;
     width: 100%;
 }
+
+
+
+.connect-wallet-box-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    max-width: 600px;
+  
+  }
+  
+  .connect-wallet-wrapper {
+    background-color: #febe37;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+  
+  .connect-wallet {
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 1.5rem 15rem;
+    width: 1060px;
+  }
+  
+  .connect-wallet h2 {
+    color: #231f20;
+  }
+  
+  .connect-wallet-content {
+    display: flex;
+    flex-direction: row;
+    background: #231f20;
+    border: 2px solid #26E73A;
+    border-radius: 24px;
+    padding: 1.8rem 2.2rem;
+    -webkit-box-shadow: 0px 0px 30px rgb(0 0 0 / 30%),
+      0px 0px 10px rgb(0 0 0 / 50%);
+    box-shadow: 0px 0px 30px rgb(0 0 0 / 30%), 0px 0px 10px rgb(0 0 0 / 50%);
+    z-index: 1;
+    width: 100%;
+  }
+  
+  .connect-wallet-text {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+  
+  .connect-wallet-text p {
+    margin: 0 auto;
+  }
+  
+  .connect-wallet-text p:nth-of-type(2) {
+    color: #26E73A;
+    margin-bottom: 0.25rem;
+  }
+  
+  .connect-wallet-text p:nth-of-type(1) {
+    color: #fff;
+  }
+  

@@ -51,8 +51,8 @@ query getDropByID {
 }
 
 
-query listTiersForTitleTrackDrop {
-  listTiers(filter: {dropID: {eq: "8a2bc444-c9cf-45f8-98dc-0f500e465684"}}) {
+query listTiersForTitleTrackDrop  ($dropID: ID!) {
+  listTiers(filter: {dropID: {eq: $dropID}}) {
     items {
       id
       isSoldOut
@@ -80,3 +80,47 @@ query listTiersForTitleTrackDrop {
     }
   }
 }
+
+mutation createPlatinumTierForTitleTrackDrop {
+	createTier(input: {
+		dropID: "8a2bc444-c9cf-45f8-98dc-0f500e465684",
+		isSoldOut: false,
+		numberOfTokens: 10,
+		priceUSD: "199",
+		percentageOwnership: 2,
+		perkDescription: "Free Tickets to next Gig/nMerchandise as part of your purchase/nSigned Poster from HappyAlone",
+		title: "Platinum"
+	}) {
+		numberOfTokens
+	}
+}
+
+mutation createGoldTierForTitleTrackDrop {
+	createTier(input: {
+		dropID: "8a2bc444-c9cf-45f8-98dc-0f500e465684",
+		isSoldOut: false,
+		numberOfTokens: 250,
+		priceUSD: "49",
+		percentageOwnership: 0.5,
+		perkDescription: "Merchandise as part of your purchase/nPoster from HappyAlone",
+		title: "Gold"
+	}) {
+		numberOfTokens
+	}
+}
+
+
+mutation createSilverTierForTitleTrackDrop {
+	createTier(input: {
+		dropID: "8a2bc444-c9cf-45f8-98dc-0f500e465684",
+		isSoldOut: false,
+		numberOfTokens: 350,
+		priceUSD: "19",
+		percentageOwnership: 0.2,
+		perkDescription: "Poster from HappyAlone",
+		title: "Silver"
+	}) {
+		numberOfTokens
+	}
+}
+
