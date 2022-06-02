@@ -98,8 +98,8 @@ export default function UpcomingNFTDrops() {
       <>
 
 
-      <span style={{ margin: "1em" }} className="font-semibold text-3xl sm:text-4xl md:text-3xl text-gray ">
-        Featured Drops
+      <span style={{ margin: "1em", marginBottom:"2em" }} className="font-semibold text-3xl sm:text-4xl md:text-3xl text-gray ">
+        Featured Drop
       </span>
 
         <div className={styles.overlayImage} style={{ width: "100%", height: "600px", position: "relative", borderRadius:"20px" }}>
@@ -131,6 +131,11 @@ export default function UpcomingNFTDrops() {
         <p style={{width:"1px", whiteSpace:"nowrap", position: "relative", marginBottom:"-35px", left:"10px", top:"-55px", fontSize: "2em", color: "white", fontWeight: "2em", lineHeight: "1em", marginLeft: "0.5em" }}>29th July 14:00 GMT</p>
 
         {/* <NFTCarousel /> */}
+
+        <br></br><br></br>
+        <span style={{ marginTop: "4em", marginLeft: "1em" }} className="font-semibold text-3xl sm:text-4xl md:text-3xl text-gray ">
+          Drops
+        </span>
 
         {dropData !== undefined ? dropData.map((uri: IDropData, index: number) => (
           <>

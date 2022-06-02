@@ -45,7 +45,7 @@ const ShopListing = (data: any) => {
     </div> */
 
 
-    <div className={`${styles['wrapperDiv']} mt-4 p-4 col-sm-12 col-md-6 col-lg-5 col-xl-4`}>
+    <div className={`${styles['wrapperDiv']} mt-2 p-4 col-sm-12 col-md-6 col-lg-5 col-xl-4`}>
     <Row>
         <Col key={uri.artistID}>
         <div style={{cursor:"pointer"}}>
