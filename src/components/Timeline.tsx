@@ -43,11 +43,17 @@ Storage.configure({ track: true, level: "private" });
 
 const Timeline = () => {
 
+  const userContext:any = useContext(UserContext)
+  const [userNFTS, setUserNFTS] = useState(undefined)
+
+
+
   useEffect(() => {
     onPageRendered();
     fetchUserInfo();
+    userContext.userNFTs && setUserNFTS(userContext.userNFTs)
     
-  }, []);
+  }, [userContext.userNFTs]);
   
   const onPageRendered = async () => {
     getProfilePicture();
@@ -61,7 +67,7 @@ const Timeline = () => {
       setFirstName(user.attributes.name)
       setLastName(user.attributes.family_name)
       setEmail(user.attributes.email)
-      {user.attributes['custom:shippingAddress'] ? setAddress(user.attributes['custom:shippingAddress']) : setAddress("")}
+      {user.attributes['custom:shippingAddress'] ? setShippingAddress(user.attributes['custom:shippingAddress']) : setShippingAddress("")}
       if(user.attributes.address){
         setAddress(user.attributes.address)
       }
@@ -129,6 +135,8 @@ const Timeline = () => {
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
 
+  const [shippingAddress, setShippingAddress] = useState("");
+
   const [formFirstName, setFormFirstName] = useState("");
   const [formLastName, setFormLastName] = useState("");
   const [formEmail, setFormEmail] = useState("");
@@ -147,7 +155,9 @@ const Timeline = () => {
   };
 
   return (
-    <>
+    <UserContext.Consumer>
+      {({web3Provider, uriList, userNFTs, address, connect, disconnect}: {web3Provider: any, uriList: any, userNFTs: any, address: any, connect: any, disconnect: any}) => (
+
       <Card>
         <ProfileCard user={user} />
         <Nav tabs className="profile-tab">
@@ -223,12 +233,12 @@ const Timeline = () => {
                     <Col md="4" xs="6" className="border-end">
                       <strong>Shipping Address</strong>
                       <br />
-                      <p className="text-muted">{address ? address : "London"}</p>
+                      <p className="text-muted">{shippingAddress ? shippingAddress : "London"}</p>
                     </Col>
                     <Col md="4" xs="6" className="border-end">
                       <strong>Wallet Address</strong>
                       <br />
-                      <p className="text-muted">{UserContext.address ? UserContext.address : "0x0"}</p>
+                      <p className="text-muted">{address ? address : "0x0"}</p>
                     </Col>
                   </Row>
                   <p className="mt-4">
@@ -239,7 +249,7 @@ const Timeline = () => {
                   <h4 className="font-medium mt-4">Stats</h4>
                   <hr />
                   <h5 className="mt-4">
-                    NFTs Collected <span className="float-end">8</span>
+                    NFTs Collected <span className="float-end">{userNFTS}</span>
                   </h5>
 {/*                   <Progress value={2 * 5} />
                   <h5 className="mt-4">
@@ -277,7 +287,7 @@ const Timeline = () => {
                     </FormGroup> */}
                     <FormGroup>
                       <Label>Shipping Address</Label>
-                      <Input onChange={(e) => setFormAddress(e.target.value)} type="text" placeholder={address ? address : "123 Barrack Street"} />
+                      <Input onChange={(e) => setFormAddress(e.target.value)} type="text" placeholder={shippingAddress ? shippingAddress : "123 Barrack Street"} />
                     </FormGroup>
 {/*                     <FormGroup>
                       <Label>Select Country</Label>
@@ -351,7 +361,9 @@ const Timeline = () => {
           </TabPane>
         </TabContent>
       </Card>
-    </>
+      
+      )}
+    </UserContext.Consumer>
   );
 };
 

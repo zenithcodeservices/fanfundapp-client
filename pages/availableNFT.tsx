@@ -5,11 +5,11 @@ import { Card, CardBody } from 'reactstrap';
 import styles from '../src/assets/css/AvailableNFT.module.css'
 import Image from "next/image"
 
-
 import UserContext from "../lib/userContext"
 import { useContext, useEffect, useState } from "react";
 import ChampionUri from "../src/types/ChampionUri";
 import LoadingSpin from "react-loading-spin";
+import Link from "next/link";
 
 const DEFAULT_WALLET_ADDRESS: string = 'Input wallet address...'
 
@@ -50,39 +50,56 @@ export default function AvailableNFT(data: any) {
 
     return (
 
-          <div>
-          <div className={styles.tabBody}>
-                  <div className={styles.flexContainer}>
-                  <div className={styles.aviItem}>
-                      <Image src={image} width={170} height={170} layout="responsive" />
+          <>
+          
+      
+      <div className={`${styles['wrapperDiv']} mt-4 p-4 col-sm-12 col-md-6 col-lg-5 col-xl-4`}>
+          <Row>
+            <Col>
+              <div style={{ cursor: "pointer" }}>
+                {/* <Link
+                  href={{
+                    pathname: "/NFTs/nft-detail?drop=[id]",
+                    query: {
+                      id: uri['id'],
+                    }
+                  }}
+                  // as={`/NFTs/nft-detail?id=${uri['id'].substr(uri['id'].length - 5)}`}
+                  as={`/NFTs/nft-detail?id=${uri['id']}`}
+                > */}
+                  <div>
+                    <a>
+                      <Image
+                        src={image}
+                        alt="product"
+                        className="img-fluid rounded-3"
+                        height={200}
+                        width={200}
+                        layout="responsive" />
+                    </a>
                   </div>
-
-
-
-
-                <div style={{width:"342px"}} className={styles.listcontainer}>
-                  <ul className={styles.nostyle}>
-                    <li><span className={styles.titleTextSpan}>ID: {`\t`}</span><span className={styles.titleTextSpanYellow}>{uri['id']}</span></li>
-                    <li><span className={styles.titleTextSpan}>{uri['attributes'][0]['trait_type'].split(' ').slice(0,1).join(' ')}: {`\t`}</span><span className={styles.titleTextSpanYellow}>{uri['attributes'][0]['value'].split(' ').slice(0,2).join(' ')}</span></li>
-                    <li><span className={styles.titleTextSpan}>{uri['attributes'][1]['trait_type'].split(' ').slice(0,1).join(' ')}: {`\t`}</span><span className={styles.titleTextSpanYellow}>{uri['attributes'][1]['value'].split(' ').slice(0,2).join(' ')}</span></li>
-                    <li><span className={styles.titleTextSpan}>{uri['attributes'][2]['trait_type'].split(' ').slice(0,1).join(' ')}: {`\t`}</span><span className={styles.titleTextSpanYellow}>{uri['attributes'][2]['value'].split(' ').slice(0,2).join(' ')}</span></li>
-                    <li><span className={styles.titleTextSpan}>{uri['attributes'][3]['trait_type'].split(' ').slice(0,1).join(' ')}: {`\t`}</span><span className={styles.titleTextSpanYellow}>{uri['attributes'][3]['value'].split(' ').slice(0,2).join(' ')}</span></li>
-                    <li><span className={styles.titleTextSpan}>{uri['attributes'][4]['trait_type'].split(' ').slice(0,1).join(' ')}: {`\t`}</span><span className={styles.titleTextSpanYellow}>{uri['attributes'][4]['value'].split(' ').slice(0,2).join(' ')}</span></li>
-                    <li><span className={styles.titleTextSpan}>{uri['attributes'][5]['trait_type'].split(' ').slice(0,1).join(' ')}: {`\t`}</span><span className={styles.titleTextSpanYellow}>{uri['attributes'][5]['value'].split(' ').slice(0,2).join(' ')}</span></li>
-                    <li><span className={styles.titleTextSpan}>{uri['attributes'][6]['trait_type'].split(' ').slice(0,1).join(' ')}: {`\t`}</span><span className={styles.titleTextSpanYellow}>{uri['attributes'][6]['value'].split(' ').slice(0,2).join(' ')}</span></li>
-                    <li><span className={styles.titleTextSpan}>{uri['attributes'][7]['trait_type'].split(' ').slice(0,1).join(' ')}: {`\t`}</span><span className={styles.titleTextSpanYellow}>{uri['attributes'][7]['value'].toString().slice(0,6)}</span></li>
-                  </ul>
-                </div>
-
-
-                </div>
-          </div>
-
-
-
-
-
+                {/* </Link> */}
+              </div>
+              <div className="pt-2">
+                <div className="mb-4"></div>
+                <ul className={styles.nostyle}>
+                  <li><span className={styles.titleTextSpan}>ID: {`\t`}</span><span className={styles.titleTextSpanYellow}>{uri['id']}</span></li>
+                  <li><span className={styles.titleTextSpan}>{uri['attributes'][0]['trait_type'].split(' ').slice(0, 1).join(' ')}: {`\t`}</span><span className={styles.titleTextSpanYellow}>{uri['attributes'][0]['value'].split(' ').slice(0, 2).join(' ')}</span></li>
+                  <li><span className={styles.titleTextSpan}>{uri['attributes'][1]['trait_type'].split(' ').slice(0, 1).join(' ')}: {`\t`}</span><span className={styles.titleTextSpanYellow}>{uri['attributes'][1]['value'].split(' ').slice(0, 2).join(' ')}</span></li>
+                  <li><span className={styles.titleTextSpan}>{uri['attributes'][2]['trait_type'].split(' ').slice(0, 1).join(' ')}: {`\t`}</span><span className={styles.titleTextSpanYellow}>{uri['attributes'][2]['value'].split(' ').slice(0, 2).join(' ')}</span></li>
+                  <li><span className={styles.titleTextSpan}>{uri['attributes'][3]['trait_type'].split(' ').slice(0, 1).join(' ')}: {`\t`}</span><span className={styles.titleTextSpanYellow}>{uri['attributes'][3]['value'].split(' ').slice(0, 2).join(' ')}</span></li>
+                  <li><span className={styles.titleTextSpan}>{uri['attributes'][4]['trait_type'].split(' ').slice(0, 1).join(' ')}: {`\t`}</span><span className={styles.titleTextSpanYellow}>{uri['attributes'][4]['value'].split(' ').slice(0, 2).join(' ')}</span></li>
+                  <li><span className={styles.titleTextSpan}>{uri['attributes'][5]['trait_type'].split(' ').slice(0, 1).join(' ')}: {`\t`}</span><span className={styles.titleTextSpanYellow}>{uri['attributes'][5]['value'].split(' ').slice(0, 2).join(' ')}</span></li>
+                  <li><span className={styles.titleTextSpan}>{uri['attributes'][6]['trait_type'].split(' ').slice(0, 1).join(' ')}: {`\t`}</span><span className={styles.titleTextSpanYellow}>{uri['attributes'][6]['value'].split(' ').slice(0, 2).join(' ')}</span></li>
+                  <li><span className={styles.titleTextSpan}>{uri['attributes'][7]['trait_type'].split(' ').slice(0, 1).join(' ')}: {`\t`}</span><span className={styles.titleTextSpanYellow}>{uri['attributes'][7]['value'].toString().slice(0, 6)}</span></li>
+                </ul>
+              </div>
+            </Col>
+          </Row>
         </div>
+        
+        
+        </>
 
 
     )

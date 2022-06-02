@@ -1,0 +1,22 @@
+.overlayImage {
+    background: linear-gradient(rgb(72,0,72,0.8), rgb(192,72,72,0.8));
+    filter: brightness(60%);
+    cursor:pointer;
+}
+
+.overlayImage:hover {
+    filter: brightness(80%);
+    -moz-transform: rotate(-1deg);
+	-webkit-transform: rotate(-1deg);
+	-o-transform: rotate(-1deg);
+	-ms-transform: rotate(-1deg);
+	transform: rotate(-1deg);
+}
+
+.imageFilter {
+    filter: brightness(10%);
+}
+
+.bordered {
+    border-radius: 20px;
+}

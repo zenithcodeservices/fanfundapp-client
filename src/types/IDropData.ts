@@ -9,6 +9,7 @@ type IDropData = {
     streamingPercentage:string
     title:string
     updatedAt:string
+    artist:string[]
   }
 
 export default IDropData

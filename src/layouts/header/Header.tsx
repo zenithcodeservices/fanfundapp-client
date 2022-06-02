@@ -78,6 +78,8 @@ const Header = ({showMobmenu }) => {
 
 
   return (
+    <UserContext.Consumer>
+      {({web3Provider, uriList, userNFTs, address, connect, disconnect}: {web3Provider: any, uriList: any, userNFTs: any, address: any, connect: any, disconnect: any}) => (
 
     <Navbar color="palette-gray" dark expand="md">
       <div className="d-flex align-items-center">
@@ -185,6 +187,8 @@ const Header = ({showMobmenu }) => {
 
       {/* </Collapse> */}
     </Navbar>
+    )}
+    </UserContext.Consumer>
   );
 };
 

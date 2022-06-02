@@ -442,3 +442,16 @@
   padding-top: 1em;
   padding-bottom: 1em;
 }
+
+
+.wrapperDiv {
+  background-color: #231f20;
+  border-radius: 20px;
+  webkit-box-shadow: -1px 0px 20px 0px #231E20;
+  -moz-box-shadow: -1px 0px 20px 0px #231E20;
+  box-shadow: -1px 0px 20px 0px #231E20;
+}
+
+.wrapperDiv:hover {
+    transform: scale(1.01);
+}

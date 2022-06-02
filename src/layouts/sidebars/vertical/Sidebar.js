@@ -13,11 +13,7 @@ const navigation = [
     href: "/dashboard",
     icon: "bi bi-speedometer2",
   },
-  {
-    title: "Artists",
-    href: "/artists",
-    icon: "bi bi-bell",
-  },
+
   {
     title: "Alert",
     href: "/ui/alerts",
@@ -77,11 +73,7 @@ const navigation2 = [
     href: "/nft-drops-historical",
     icon: "bi bi-bell",
   }, */
-  {
-    title: "Artists",
-    href: "/artists",
-    icon: "bi bi-bell",
-  },
+
   {
     title: "Collection",
     href: "/portfolio",
